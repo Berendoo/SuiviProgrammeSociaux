@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFinancerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListFinancerEmpty}" rendered="#{financerController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{financerController.items.rowCount > 0}">
+                    <h:outputText value="#{financerController.pagination.pageFirstItem + 1}..#{financerController.pagination.pageLastItem + 1}/#{financerController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{financerController.previous}" value="#{bundle.Previous} #{financerController.pagination.pageSize}" rendered="#{financerController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{financerController.next}" value="#{bundle.Next} #{financerController.pagination.pageSize}" rendered="#{financerController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{financerController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFinancerTitle_idfinancer}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idfinancer}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFinancerTitle_date}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.date}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFinancerTitle_don}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.don}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFinancerTitle_iddonateur}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iddonateur}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFinancerTitle_idinstitution}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idinstitution}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{financerController.prepareView}" value="#{bundle.ListFinancerViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{financerController.prepareEdit}" value="#{bundle.ListFinancerEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{financerController.destroy}" value="#{bundle.ListFinancerDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{financerController.prepareCreate}" value="#{bundle.ListFinancerCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListFinancerIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

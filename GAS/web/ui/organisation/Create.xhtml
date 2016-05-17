@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateOrganisationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateOrganisationLabel_idorganisation}" for="idorganisation" />
+                    <h:inputText id="idorganisation" value="#{organisationController.selected.idorganisation}" title="#{bundle.CreateOrganisationTitle_idorganisation}" />
+                    <h:outputLabel value="#{bundle.CreateOrganisationLabel_nomorganisation}" for="nomorganisation" />
+                    <h:inputText id="nomorganisation" value="#{organisationController.selected.nomorganisation}" title="#{bundle.CreateOrganisationTitle_nomorganisation}" required="true" requiredMessage="#{bundle.CreateOrganisationRequiredMessage_nomorganisation}"/>
+                    <h:outputLabel value="#{bundle.CreateOrganisationLabel_adresseorganisation}" for="adresseorganisation" />
+                    <h:inputText id="adresseorganisation" value="#{organisationController.selected.adresseorganisation}" title="#{bundle.CreateOrganisationTitle_adresseorganisation}" required="true" requiredMessage="#{bundle.CreateOrganisationRequiredMessage_adresseorganisation}"/>
+                    <h:outputLabel value="#{bundle.CreateOrganisationLabel_commentaire}" for="commentaire" />
+                    <h:inputText id="commentaire" value="#{organisationController.selected.commentaire}" title="#{bundle.CreateOrganisationTitle_commentaire}" />
+                    <h:outputLabel value="#{bundle.CreateOrganisationLabel_idcommune}" for="idcommune" />
+                    <h:selectOneMenu id="idcommune" value="#{organisationController.selected.idcommune}" title="#{bundle.CreateOrganisationTitle_idcommune}" required="true" requiredMessage="#{bundle.CreateOrganisationRequiredMessage_idcommune}">
+                        <f:selectItems value="#{communeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateOrganisationLabel_idtypeorganisation}" for="idtypeorganisation" />
+                    <h:selectOneMenu id="idtypeorganisation" value="#{organisationController.selected.idtypeorganisation}" title="#{bundle.CreateOrganisationTitle_idtypeorganisation}" required="true" requiredMessage="#{bundle.CreateOrganisationRequiredMessage_idtypeorganisation}">
+                        <f:selectItems value="#{typeorganistationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{organisationController.create}" value="#{bundle.CreateOrganisationSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{organisationController.prepareList}" value="#{bundle.CreateOrganisationShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateOrganisationIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

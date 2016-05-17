@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOrganisationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewOrganisationLabel_idorganisation}"/>
+                    <h:outputText value="#{organisationController.selected.idorganisation}" title="#{bundle.ViewOrganisationTitle_idorganisation}"/>
+                    <h:outputText value="#{bundle.ViewOrganisationLabel_nomorganisation}"/>
+                    <h:outputText value="#{organisationController.selected.nomorganisation}" title="#{bundle.ViewOrganisationTitle_nomorganisation}"/>
+                    <h:outputText value="#{bundle.ViewOrganisationLabel_adresseorganisation}"/>
+                    <h:outputText value="#{organisationController.selected.adresseorganisation}" title="#{bundle.ViewOrganisationTitle_adresseorganisation}"/>
+                    <h:outputText value="#{bundle.ViewOrganisationLabel_commentaire}"/>
+                    <h:outputText value="#{organisationController.selected.commentaire}" title="#{bundle.ViewOrganisationTitle_commentaire}"/>
+                    <h:outputText value="#{bundle.ViewOrganisationLabel_idcommune}"/>
+                    <h:outputText value="#{organisationController.selected.idcommune}" title="#{bundle.ViewOrganisationTitle_idcommune}"/>
+                    <h:outputText value="#{bundle.ViewOrganisationLabel_idtypeorganisation}"/>
+                    <h:outputText value="#{organisationController.selected.idtypeorganisation}" title="#{bundle.ViewOrganisationTitle_idtypeorganisation}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{organisationController.destroyAndView}" value="#{bundle.ViewOrganisationDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewOrganisationEditLink}"/>
+                <br />
+                <h:commandLink action="#{organisationController.prepareCreate}" value="#{bundle.ViewOrganisationCreateLink}" />
+                <br />
+                <h:commandLink action="#{organisationController.prepareList}" value="#{bundle.ViewOrganisationShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewOrganisationIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

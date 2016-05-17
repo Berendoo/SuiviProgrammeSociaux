@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProjetTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProjetLabel_idprojet}" for="idprojet" />
+                    <h:inputText id="idprojet" value="#{projetController.selected.idprojet}" title="#{bundle.CreateProjetTitle_idprojet}" />
+                    <h:outputLabel value="#{bundle.CreateProjetLabel_nomprojet}" for="nomprojet" />
+                    <h:inputText id="nomprojet" value="#{projetController.selected.nomprojet}" title="#{bundle.CreateProjetTitle_nomprojet}" required="true" requiredMessage="#{bundle.CreateProjetRequiredMessage_nomprojet}"/>
+                    <h:outputLabel value="#{bundle.CreateProjetLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{projetController.selected.description}" title="#{bundle.CreateProjetTitle_description}" required="true" requiredMessage="#{bundle.CreateProjetRequiredMessage_description}"/>
+                    <h:outputLabel value="#{bundle.CreateProjetLabel_typeprojet}" for="typeprojet" />
+                    <h:inputText id="typeprojet" value="#{projetController.selected.typeprojet}" title="#{bundle.CreateProjetTitle_typeprojet}" required="true" requiredMessage="#{bundle.CreateProjetRequiredMessage_typeprojet}"/>
+                    <h:outputLabel value="#{bundle.CreateProjetLabel_logo}" for="logo" />
+                    <h:inputTextarea rows="4" cols="30" id="logo" value="#{projetController.selected.logo}" title="#{bundle.CreateProjetTitle_logo}" />
+                    <h:outputLabel value="#{bundle.CreateProjetLabel_idprogramme}" for="idprogramme" />
+                    <h:selectOneMenu id="idprogramme" value="#{projetController.selected.idprogramme}" title="#{bundle.CreateProjetTitle_idprogramme}" required="true" requiredMessage="#{bundle.CreateProjetRequiredMessage_idprogramme}">
+                        <f:selectItems value="#{programmeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{projetController.create}" value="#{bundle.CreateProjetSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{projetController.prepareList}" value="#{bundle.CreateProjetShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateProjetIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

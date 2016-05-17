@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPrestationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPrestationEmpty}" rendered="#{prestationController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{prestationController.items.rowCount > 0}">
+                    <h:outputText value="#{prestationController.pagination.pageFirstItem + 1}..#{prestationController.pagination.pageLastItem + 1}/#{prestationController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{prestationController.previous}" value="#{bundle.Previous} #{prestationController.pagination.pageSize}" rendered="#{prestationController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{prestationController.next}" value="#{bundle.Next} #{prestationController.pagination.pageSize}" rendered="#{prestationController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{prestationController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPrestationTitle_idprestation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idprestation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPrestationTitle_nomprestation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomprestation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPrestationTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPrestationTitle_iddistributeur}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iddistributeur}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{prestationController.prepareView}" value="#{bundle.ListPrestationViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{prestationController.prepareEdit}" value="#{bundle.ListPrestationEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{prestationController.destroy}" value="#{bundle.ListPrestationDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{prestationController.prepareCreate}" value="#{bundle.ListPrestationCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPrestationIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

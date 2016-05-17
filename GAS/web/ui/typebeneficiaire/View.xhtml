@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTypebeneficiaireTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTypebeneficiaireLabel_idtypebeneficiaire}"/>
+                    <h:outputText value="#{typebeneficiaireController.selected.idtypebeneficiaire}" title="#{bundle.ViewTypebeneficiaireTitle_idtypebeneficiaire}"/>
+                    <h:outputText value="#{bundle.ViewTypebeneficiaireLabel_nomtypebeneficiaire}"/>
+                    <h:outputText value="#{typebeneficiaireController.selected.nomtypebeneficiaire}" title="#{bundle.ViewTypebeneficiaireTitle_nomtypebeneficiaire}"/>
+                    <h:outputText value="#{bundle.ViewTypebeneficiaireLabel_description}"/>
+                    <h:outputText value="#{typebeneficiaireController.selected.description}" title="#{bundle.ViewTypebeneficiaireTitle_description}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{typebeneficiaireController.destroyAndView}" value="#{bundle.ViewTypebeneficiaireDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTypebeneficiaireEditLink}"/>
+                <br />
+                <h:commandLink action="#{typebeneficiaireController.prepareCreate}" value="#{bundle.ViewTypebeneficiaireCreateLink}" />
+                <br />
+                <h:commandLink action="#{typebeneficiaireController.prepareList}" value="#{bundle.ViewTypebeneficiaireShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTypebeneficiaireIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

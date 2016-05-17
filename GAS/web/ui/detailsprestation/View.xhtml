@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDetailsprestationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_iddetailsprestation}"/>
+                    <h:outputText value="#{detailsprestationController.selected.iddetailsprestation}" title="#{bundle.ViewDetailsprestationTitle_iddetailsprestation}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_quantite}"/>
+                    <h:outputText value="#{detailsprestationController.selected.quantite}" title="#{bundle.ViewDetailsprestationTitle_quantite}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_datelivraison}"/>
+                    <h:outputText value="#{detailsprestationController.selected.datelivraison}" title="#{bundle.ViewDetailsprestationTitle_datelivraison}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_nofacture}"/>
+                    <h:outputText value="#{detailsprestationController.selected.nofacture}" title="#{bundle.ViewDetailsprestationTitle_nofacture}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_cin}"/>
+                    <h:outputText value="#{detailsprestationController.selected.cin}" title="#{bundle.ViewDetailsprestationTitle_cin}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_datelancement}"/>
+                    <h:outputText value="#{detailsprestationController.selected.datelancement}" title="#{bundle.ViewDetailsprestationTitle_datelancement}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_pin}"/>
+                    <h:outputText value="#{detailsprestationController.selected.pin}" title="#{bundle.ViewDetailsprestationTitle_pin}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_periode}"/>
+                    <h:outputText value="#{detailsprestationController.selected.periode}" title="#{bundle.ViewDetailsprestationTitle_periode}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_montant}"/>
+                    <h:outputText value="#{detailsprestationController.selected.montant}" title="#{bundle.ViewDetailsprestationTitle_montant}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_devise}"/>
+                    <h:outputText value="#{detailsprestationController.selected.devise}" title="#{bundle.ViewDetailsprestationTitle_devise}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_pyPayerId}"/>
+                    <h:outputText value="#{detailsprestationController.selected.pyPayerId}" title="#{bundle.ViewDetailsprestationTitle_pyPayerId}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_pyPayrollNo}"/>
+                    <h:outputText value="#{detailsprestationController.selected.pyPayrollNo}" title="#{bundle.ViewDetailsprestationTitle_pyPayrollNo}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_pyPayeeId}"/>
+                    <h:outputText value="#{detailsprestationController.selected.pyPayeeId}" title="#{bundle.ViewDetailsprestationTitle_pyPayeeId}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_dossier}"/>
+                    <h:outputText value="#{detailsprestationController.selected.dossier}" title="#{bundle.ViewDetailsprestationTitle_dossier}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_numeroch}"/>
+                    <h:outputText value="#{detailsprestationController.selected.numeroch}" title="#{bundle.ViewDetailsprestationTitle_numeroch}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_serie}"/>
+                    <h:outputText value="#{detailsprestationController.selected.serie}" title="#{bundle.ViewDetailsprestationTitle_serie}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_idcommune}"/>
+                    <h:outputText value="#{detailsprestationController.selected.idcommune}" title="#{bundle.ViewDetailsprestationTitle_idcommune}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_idfiche}"/>
+                    <h:outputText value="#{detailsprestationController.selected.idfiche}" title="#{bundle.ViewDetailsprestationTitle_idfiche}"/>
+                    <h:outputText value="#{bundle.ViewDetailsprestationLabel_idprestation}"/>
+                    <h:outputText value="#{detailsprestationController.selected.idprestation}" title="#{bundle.ViewDetailsprestationTitle_idprestation}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{detailsprestationController.destroyAndView}" value="#{bundle.ViewDetailsprestationDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDetailsprestationEditLink}"/>
+                <br />
+                <h:commandLink action="#{detailsprestationController.prepareCreate}" value="#{bundle.ViewDetailsprestationCreateLink}" />
+                <br />
+                <h:commandLink action="#{detailsprestationController.prepareList}" value="#{bundle.ViewDetailsprestationShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDetailsprestationIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

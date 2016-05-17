@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePersonnereferenceTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_idprf}" for="idprf" />
+                    <h:inputText id="idprf" value="#{personnereferenceController.selected.idprf}" title="#{bundle.CreatePersonnereferenceTitle_idprf}" />
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_nomprf}" for="nomprf" />
+                    <h:inputText id="nomprf" value="#{personnereferenceController.selected.nomprf}" title="#{bundle.CreatePersonnereferenceTitle_nomprf}" required="true" requiredMessage="#{bundle.CreatePersonnereferenceRequiredMessage_nomprf}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_prenomprf}" for="prenomprf" />
+                    <h:inputText id="prenomprf" value="#{personnereferenceController.selected.prenomprf}" title="#{bundle.CreatePersonnereferenceTitle_prenomprf}" required="true" requiredMessage="#{bundle.CreatePersonnereferenceRequiredMessage_prenomprf}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_adresseprf}" for="adresseprf" />
+                    <h:inputText id="adresseprf" value="#{personnereferenceController.selected.adresseprf}" title="#{bundle.CreatePersonnereferenceTitle_adresseprf}" required="true" requiredMessage="#{bundle.CreatePersonnereferenceRequiredMessage_adresseprf}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_cinprf}" for="cinprf" />
+                    <h:inputText id="cinprf" value="#{personnereferenceController.selected.cinprf}" title="#{bundle.CreatePersonnereferenceTitle_cinprf}" required="true" requiredMessage="#{bundle.CreatePersonnereferenceRequiredMessage_cinprf}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_telephoneprf}" for="telephoneprf" />
+                    <h:inputText id="telephoneprf" value="#{personnereferenceController.selected.telephoneprf}" title="#{bundle.CreatePersonnereferenceTitle_telephoneprf}" required="true" requiredMessage="#{bundle.CreatePersonnereferenceRequiredMessage_telephoneprf}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_fonction}" for="fonction" />
+                    <h:inputText id="fonction" value="#{personnereferenceController.selected.fonction}" title="#{bundle.CreatePersonnereferenceTitle_fonction}" required="true" requiredMessage="#{bundle.CreatePersonnereferenceRequiredMessage_fonction}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_sexeprf}" for="sexeprf" />
+                    <h:inputText id="sexeprf" value="#{personnereferenceController.selected.sexeprf}" title="#{bundle.CreatePersonnereferenceTitle_sexeprf}" required="true" requiredMessage="#{bundle.CreatePersonnereferenceRequiredMessage_sexeprf}"/>
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_emailprf}" for="emailprf" />
+                    <h:inputText id="emailprf" value="#{personnereferenceController.selected.emailprf}" title="#{bundle.CreatePersonnereferenceTitle_emailprf}" />
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_idcommune}" for="idcommune" />
+                    <h:selectOneMenu id="idcommune" value="#{personnereferenceController.selected.idcommune}" title="#{bundle.CreatePersonnereferenceTitle_idcommune}" required="true" requiredMessage="#{bundle.CreatePersonnereferenceRequiredMessage_idcommune}">
+                        <f:selectItems value="#{communeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_idorganisation}" for="idorganisation" />
+                    <h:selectOneMenu id="idorganisation" value="#{personnereferenceController.selected.idorganisation}" title="#{bundle.CreatePersonnereferenceTitle_idorganisation}" required="true" requiredMessage="#{bundle.CreatePersonnereferenceRequiredMessage_idorganisation}">
+                        <f:selectItems value="#{organisationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePersonnereferenceLabel_idtypepoc}" for="idtypepoc" />
+                    <h:selectOneMenu id="idtypepoc" value="#{personnereferenceController.selected.idtypepoc}" title="#{bundle.CreatePersonnereferenceTitle_idtypepoc}" required="true" requiredMessage="#{bundle.CreatePersonnereferenceRequiredMessage_idtypepoc}">
+                        <f:selectItems value="#{typepocController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{personnereferenceController.create}" value="#{bundle.CreatePersonnereferenceSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{personnereferenceController.prepareList}" value="#{bundle.CreatePersonnereferenceShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePersonnereferenceIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

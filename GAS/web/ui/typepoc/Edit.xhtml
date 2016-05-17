@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTypepocTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTypepocLabel_idtypepoc}" for="idtypepoc" />
+                    <h:inputText id="idtypepoc" value="#{typepocController.selected.idtypepoc}" title="#{bundle.EditTypepocTitle_idtypepoc}" />
+                    <h:outputLabel value="#{bundle.EditTypepocLabel_fonction}" for="fonction" />
+                    <h:inputText id="fonction" value="#{typepocController.selected.fonction}" title="#{bundle.EditTypepocTitle_fonction}" required="true" requiredMessage="#{bundle.EditTypepocRequiredMessage_fonction}"/>
+                    <h:outputLabel value="#{bundle.EditTypepocLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{typepocController.selected.description}" title="#{bundle.EditTypepocTitle_description}" />
+                </h:panelGrid>
+                <h:commandLink action="#{typepocController.update}" value="#{bundle.EditTypepocSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTypepocViewLink}"/>
+                <br />
+                <h:commandLink action="#{typepocController.prepareList}" value="#{bundle.EditTypepocShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTypepocIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditLogTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditLogLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{logController.selected.id}" title="#{bundle.EditLogTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditLogLabel_login}" for="login" />
+                    <h:inputText id="login" value="#{logController.selected.login}" title="#{bundle.EditLogTitle_login}" required="true" requiredMessage="#{bundle.EditLogRequiredMessage_login}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditLogLabel_pageURL}" for="pageURL" />
+                    <h:inputText id="pageURL" value="#{logController.selected.pageURL}" title="#{bundle.EditLogTitle_pageURL}" required="true" requiredMessage="#{bundle.EditLogRequiredMessage_pageURL}"/>
+                    <h:outputLabel value="#{bundle.EditLogLabel_action}" for="action" />
+                    <h:inputText id="action" value="#{logController.selected.action}" title="#{bundle.EditLogTitle_action}" required="true" requiredMessage="#{bundle.EditLogRequiredMessage_action}"/>
+                    <h:outputLabel value="#{bundle.EditLogLabel_logout}" for="logout" />
+                    <h:inputText id="logout" value="#{logController.selected.logout}" title="#{bundle.EditLogTitle_logout}" required="true" requiredMessage="#{bundle.EditLogRequiredMessage_logout}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditLogLabel_idindividu}" for="idindividu" />
+                    <h:selectOneMenu id="idindividu" value="#{logController.selected.idindividu}" title="#{bundle.EditLogTitle_idindividu}" required="true" requiredMessage="#{bundle.EditLogRequiredMessage_idindividu}">
+                        <f:selectItems value="#{utilisateurController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{logController.update}" value="#{bundle.EditLogSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditLogViewLink}"/>
+                <br />
+                <h:commandLink action="#{logController.prepareList}" value="#{bundle.EditLogShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditLogIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

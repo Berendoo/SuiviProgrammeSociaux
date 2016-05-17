@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateInstitutionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateInstitutionLabel_idinstitution}" for="idinstitution" />
+                    <h:inputText id="idinstitution" value="#{institutionController.selected.idinstitution}" title="#{bundle.CreateInstitutionTitle_idinstitution}" />
+                    <h:outputLabel value="#{bundle.CreateInstitutionLabel_nominstitution}" for="nominstitution" />
+                    <h:inputText id="nominstitution" value="#{institutionController.selected.nominstitution}" title="#{bundle.CreateInstitutionTitle_nominstitution}" required="true" requiredMessage="#{bundle.CreateInstitutionRequiredMessage_nominstitution}"/>
+                    <h:outputLabel value="#{bundle.CreateInstitutionLabel_adresseinstitution}" for="adresseinstitution" />
+                    <h:inputText id="adresseinstitution" value="#{institutionController.selected.adresseinstitution}" title="#{bundle.CreateInstitutionTitle_adresseinstitution}" required="true" requiredMessage="#{bundle.CreateInstitutionRequiredMessage_adresseinstitution}"/>
+                    <h:outputLabel value="#{bundle.CreateInstitutionLabel_telephone}" for="telephone" />
+                    <h:inputText id="telephone" value="#{institutionController.selected.telephone}" title="#{bundle.CreateInstitutionTitle_telephone}" required="true" requiredMessage="#{bundle.CreateInstitutionRequiredMessage_telephone}"/>
+                    <h:outputLabel value="#{bundle.CreateInstitutionLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{institutionController.selected.email}" title="#{bundle.CreateInstitutionTitle_email}" required="true" requiredMessage="#{bundle.CreateInstitutionRequiredMessage_email}"/>
+                    <h:outputLabel value="#{bundle.CreateInstitutionLabel_categorie}" for="categorie" />
+                    <h:inputText id="categorie" value="#{institutionController.selected.categorie}" title="#{bundle.CreateInstitutionTitle_categorie}" required="true" requiredMessage="#{bundle.CreateInstitutionRequiredMessage_categorie}"/>
+                    <h:outputLabel value="#{bundle.CreateInstitutionLabel_website}" for="website" />
+                    <h:inputText id="website" value="#{institutionController.selected.website}" title="#{bundle.CreateInstitutionTitle_website}" />
+                    <h:outputLabel value="#{bundle.CreateInstitutionLabel_idcommune}" for="idcommune" />
+                    <h:selectOneMenu id="idcommune" value="#{institutionController.selected.idcommune}" title="#{bundle.CreateInstitutionTitle_idcommune}" required="true" requiredMessage="#{bundle.CreateInstitutionRequiredMessage_idcommune}">
+                        <f:selectItems value="#{communeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{institutionController.create}" value="#{bundle.CreateInstitutionSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{institutionController.prepareList}" value="#{bundle.CreateInstitutionShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateInstitutionIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

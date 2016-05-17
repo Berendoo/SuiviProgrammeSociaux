@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListIndividuTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListIndividuEmpty}" rendered="#{individuController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{individuController.items.rowCount > 0}">
+                    <h:outputText value="#{individuController.pagination.pageFirstItem + 1}..#{individuController.pagination.pageLastItem + 1}/#{individuController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{individuController.previous}" value="#{bundle.Previous} #{individuController.pagination.pageSize}" rendered="#{individuController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{individuController.next}" value="#{bundle.Next} #{individuController.pagination.pageSize}" rendered="#{individuController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{individuController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_idindividu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idindividu}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_nom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nom}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_prenom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prenom}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_datenaissance}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.datenaissance}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_cin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cin}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_telephone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telephone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_telephone2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telephone2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_sexe}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sexe}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_lieunaissance}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lieunaissance}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_adresse}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.adresse}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_dateenregistrement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dateenregistrement}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_photo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.photo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_empreinte}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.empreinte}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_niveau}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.niveau}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_utilisateur}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.utilisateur}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_idorganisation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idorganisation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListIndividuTitle_idprf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idprf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{individuController.prepareView}" value="#{bundle.ListIndividuViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{individuController.prepareEdit}" value="#{bundle.ListIndividuEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{individuController.destroy}" value="#{bundle.ListIndividuDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{individuController.prepareCreate}" value="#{bundle.ListIndividuCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListIndividuIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

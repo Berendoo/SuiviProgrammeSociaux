@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDetailsprestationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_iddetailsprestation}" for="iddetailsprestation" />
+                    <h:inputText id="iddetailsprestation" value="#{detailsprestationController.selected.iddetailsprestation}" title="#{bundle.EditDetailsprestationTitle_iddetailsprestation}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_quantite}" for="quantite" />
+                    <h:inputText id="quantite" value="#{detailsprestationController.selected.quantite}" title="#{bundle.EditDetailsprestationTitle_quantite}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_datelivraison}" for="datelivraison" />
+                    <h:inputText id="datelivraison" value="#{detailsprestationController.selected.datelivraison}" title="#{bundle.EditDetailsprestationTitle_datelivraison}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_nofacture}" for="nofacture" />
+                    <h:inputText id="nofacture" value="#{detailsprestationController.selected.nofacture}" title="#{bundle.EditDetailsprestationTitle_nofacture}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_cin}" for="cin" />
+                    <h:inputText id="cin" value="#{detailsprestationController.selected.cin}" title="#{bundle.EditDetailsprestationTitle_cin}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_datelancement}" for="datelancement" />
+                    <h:inputText id="datelancement" value="#{detailsprestationController.selected.datelancement}" title="#{bundle.EditDetailsprestationTitle_datelancement}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_pin}" for="pin" />
+                    <h:inputText id="pin" value="#{detailsprestationController.selected.pin}" title="#{bundle.EditDetailsprestationTitle_pin}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_periode}" for="periode" />
+                    <h:inputText id="periode" value="#{detailsprestationController.selected.periode}" title="#{bundle.EditDetailsprestationTitle_periode}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_montant}" for="montant" />
+                    <h:inputText id="montant" value="#{detailsprestationController.selected.montant}" title="#{bundle.EditDetailsprestationTitle_montant}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_devise}" for="devise" />
+                    <h:inputText id="devise" value="#{detailsprestationController.selected.devise}" title="#{bundle.EditDetailsprestationTitle_devise}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_pyPayerId}" for="pyPayerId" />
+                    <h:inputText id="pyPayerId" value="#{detailsprestationController.selected.pyPayerId}" title="#{bundle.EditDetailsprestationTitle_pyPayerId}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_pyPayrollNo}" for="pyPayrollNo" />
+                    <h:inputText id="pyPayrollNo" value="#{detailsprestationController.selected.pyPayrollNo}" title="#{bundle.EditDetailsprestationTitle_pyPayrollNo}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_pyPayeeId}" for="pyPayeeId" />
+                    <h:inputText id="pyPayeeId" value="#{detailsprestationController.selected.pyPayeeId}" title="#{bundle.EditDetailsprestationTitle_pyPayeeId}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_dossier}" for="dossier" />
+                    <h:inputText id="dossier" value="#{detailsprestationController.selected.dossier}" title="#{bundle.EditDetailsprestationTitle_dossier}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_numeroch}" for="numeroch" />
+                    <h:inputText id="numeroch" value="#{detailsprestationController.selected.numeroch}" title="#{bundle.EditDetailsprestationTitle_numeroch}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_serie}" for="serie" />
+                    <h:inputText id="serie" value="#{detailsprestationController.selected.serie}" title="#{bundle.EditDetailsprestationTitle_serie}" />
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_idcommune}" for="idcommune" />
+                    <h:selectOneMenu id="idcommune" value="#{detailsprestationController.selected.idcommune}" title="#{bundle.EditDetailsprestationTitle_idcommune}" required="true" requiredMessage="#{bundle.EditDetailsprestationRequiredMessage_idcommune}">
+                        <f:selectItems value="#{communeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_idfiche}" for="idfiche" />
+                    <h:selectOneMenu id="idfiche" value="#{detailsprestationController.selected.idfiche}" title="#{bundle.EditDetailsprestationTitle_idfiche}" required="true" requiredMessage="#{bundle.EditDetailsprestationRequiredMessage_idfiche}">
+                        <f:selectItems value="#{fichebeneficiaireController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditDetailsprestationLabel_idprestation}" for="idprestation" />
+                    <h:selectOneMenu id="idprestation" value="#{detailsprestationController.selected.idprestation}" title="#{bundle.EditDetailsprestationTitle_idprestation}" required="true" requiredMessage="#{bundle.EditDetailsprestationRequiredMessage_idprestation}">
+                        <f:selectItems value="#{prestationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{detailsprestationController.update}" value="#{bundle.EditDetailsprestationSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDetailsprestationViewLink}"/>
+                <br />
+                <h:commandLink action="#{detailsprestationController.prepareList}" value="#{bundle.EditDetailsprestationShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDetailsprestationIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

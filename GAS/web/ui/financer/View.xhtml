@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewFinancerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewFinancerLabel_idfinancer}"/>
+                    <h:outputText value="#{financerController.selected.idfinancer}" title="#{bundle.ViewFinancerTitle_idfinancer}"/>
+                    <h:outputText value="#{bundle.ViewFinancerLabel_date}"/>
+                    <h:outputText value="#{financerController.selected.date}" title="#{bundle.ViewFinancerTitle_date}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewFinancerLabel_don}"/>
+                    <h:outputText value="#{financerController.selected.don}" title="#{bundle.ViewFinancerTitle_don}"/>
+                    <h:outputText value="#{bundle.ViewFinancerLabel_iddonateur}"/>
+                    <h:outputText value="#{financerController.selected.iddonateur}" title="#{bundle.ViewFinancerTitle_iddonateur}"/>
+                    <h:outputText value="#{bundle.ViewFinancerLabel_idinstitution}"/>
+                    <h:outputText value="#{financerController.selected.idinstitution}" title="#{bundle.ViewFinancerTitle_idinstitution}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{financerController.destroyAndView}" value="#{bundle.ViewFinancerDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewFinancerEditLink}"/>
+                <br />
+                <h:commandLink action="#{financerController.prepareCreate}" value="#{bundle.ViewFinancerCreateLink}" />
+                <br />
+                <h:commandLink action="#{financerController.prepareList}" value="#{bundle.ViewFinancerShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewFinancerIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

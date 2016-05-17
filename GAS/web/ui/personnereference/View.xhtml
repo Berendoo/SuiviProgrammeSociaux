@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPersonnereferenceTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_idprf}"/>
+                    <h:outputText value="#{personnereferenceController.selected.idprf}" title="#{bundle.ViewPersonnereferenceTitle_idprf}"/>
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_nomprf}"/>
+                    <h:outputText value="#{personnereferenceController.selected.nomprf}" title="#{bundle.ViewPersonnereferenceTitle_nomprf}"/>
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_prenomprf}"/>
+                    <h:outputText value="#{personnereferenceController.selected.prenomprf}" title="#{bundle.ViewPersonnereferenceTitle_prenomprf}"/>
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_adresseprf}"/>
+                    <h:outputText value="#{personnereferenceController.selected.adresseprf}" title="#{bundle.ViewPersonnereferenceTitle_adresseprf}"/>
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_cinprf}"/>
+                    <h:outputText value="#{personnereferenceController.selected.cinprf}" title="#{bundle.ViewPersonnereferenceTitle_cinprf}"/>
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_telephoneprf}"/>
+                    <h:outputText value="#{personnereferenceController.selected.telephoneprf}" title="#{bundle.ViewPersonnereferenceTitle_telephoneprf}"/>
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_fonction}"/>
+                    <h:outputText value="#{personnereferenceController.selected.fonction}" title="#{bundle.ViewPersonnereferenceTitle_fonction}"/>
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_sexeprf}"/>
+                    <h:outputText value="#{personnereferenceController.selected.sexeprf}" title="#{bundle.ViewPersonnereferenceTitle_sexeprf}"/>
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_emailprf}"/>
+                    <h:outputText value="#{personnereferenceController.selected.emailprf}" title="#{bundle.ViewPersonnereferenceTitle_emailprf}"/>
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_idcommune}"/>
+                    <h:outputText value="#{personnereferenceController.selected.idcommune}" title="#{bundle.ViewPersonnereferenceTitle_idcommune}"/>
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_idorganisation}"/>
+                    <h:outputText value="#{personnereferenceController.selected.idorganisation}" title="#{bundle.ViewPersonnereferenceTitle_idorganisation}"/>
+                    <h:outputText value="#{bundle.ViewPersonnereferenceLabel_idtypepoc}"/>
+                    <h:outputText value="#{personnereferenceController.selected.idtypepoc}" title="#{bundle.ViewPersonnereferenceTitle_idtypepoc}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{personnereferenceController.destroyAndView}" value="#{bundle.ViewPersonnereferenceDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPersonnereferenceEditLink}"/>
+                <br />
+                <h:commandLink action="#{personnereferenceController.prepareCreate}" value="#{bundle.ViewPersonnereferenceCreateLink}" />
+                <br />
+                <h:commandLink action="#{personnereferenceController.prepareList}" value="#{bundle.ViewPersonnereferenceShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPersonnereferenceIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

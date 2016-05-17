@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEnfantTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEnfantLabel_idenfant}"/>
+                    <h:outputText value="#{enfantController.selected.idenfant}" title="#{bundle.ViewEnfantTitle_idenfant}"/>
+                    <h:outputText value="#{bundle.ViewEnfantLabel_nomenfant}"/>
+                    <h:outputText value="#{enfantController.selected.nomenfant}" title="#{bundle.ViewEnfantTitle_nomenfant}"/>
+                    <h:outputText value="#{bundle.ViewEnfantLabel_prenomenfant}"/>
+                    <h:outputText value="#{enfantController.selected.prenomenfant}" title="#{bundle.ViewEnfantTitle_prenomenfant}"/>
+                    <h:outputText value="#{bundle.ViewEnfantLabel_datadenaissanceenfant}"/>
+                    <h:outputText value="#{enfantController.selected.datadenaissanceenfant}" title="#{bundle.ViewEnfantTitle_datadenaissanceenfant}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewEnfantLabel_sexeenfant}"/>
+                    <h:outputText value="#{enfantController.selected.sexeenfant}" title="#{bundle.ViewEnfantTitle_sexeenfant}"/>
+                    <h:outputText value="#{bundle.ViewEnfantLabel_niveau}"/>
+                    <h:outputText value="#{enfantController.selected.niveau}" title="#{bundle.ViewEnfantTitle_niveau}"/>
+                    <h:outputText value="#{bundle.ViewEnfantLabel_idindividu}"/>
+                    <h:outputText value="#{enfantController.selected.idindividu}" title="#{bundle.ViewEnfantTitle_idindividu}"/>
+                    <h:outputText value="#{bundle.ViewEnfantLabel_idorganisation}"/>
+                    <h:outputText value="#{enfantController.selected.idorganisation}" title="#{bundle.ViewEnfantTitle_idorganisation}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{enfantController.destroyAndView}" value="#{bundle.ViewEnfantDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEnfantEditLink}"/>
+                <br />
+                <h:commandLink action="#{enfantController.prepareCreate}" value="#{bundle.ViewEnfantCreateLink}" />
+                <br />
+                <h:commandLink action="#{enfantController.prepareList}" value="#{bundle.ViewEnfantShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEnfantIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

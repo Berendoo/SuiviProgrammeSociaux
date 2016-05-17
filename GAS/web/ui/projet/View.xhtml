@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProjetTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewProjetLabel_idprojet}"/>
+                    <h:outputText value="#{projetController.selected.idprojet}" title="#{bundle.ViewProjetTitle_idprojet}"/>
+                    <h:outputText value="#{bundle.ViewProjetLabel_nomprojet}"/>
+                    <h:outputText value="#{projetController.selected.nomprojet}" title="#{bundle.ViewProjetTitle_nomprojet}"/>
+                    <h:outputText value="#{bundle.ViewProjetLabel_description}"/>
+                    <h:outputText value="#{projetController.selected.description}" title="#{bundle.ViewProjetTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewProjetLabel_typeprojet}"/>
+                    <h:outputText value="#{projetController.selected.typeprojet}" title="#{bundle.ViewProjetTitle_typeprojet}"/>
+                    <h:outputText value="#{bundle.ViewProjetLabel_logo}"/>
+                    <h:outputText value="#{projetController.selected.logo}" title="#{bundle.ViewProjetTitle_logo}"/>
+                    <h:outputText value="#{bundle.ViewProjetLabel_idprogramme}"/>
+                    <h:outputText value="#{projetController.selected.idprogramme}" title="#{bundle.ViewProjetTitle_idprogramme}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{projetController.destroyAndView}" value="#{bundle.ViewProjetDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewProjetEditLink}"/>
+                <br />
+                <h:commandLink action="#{projetController.prepareCreate}" value="#{bundle.ViewProjetCreateLink}" />
+                <br />
+                <h:commandLink action="#{projetController.prepareList}" value="#{bundle.ViewProjetShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewProjetIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

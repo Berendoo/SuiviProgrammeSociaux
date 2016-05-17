@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTypepocTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTypepocLabel_idtypepoc}" for="idtypepoc" />
+                    <h:inputText id="idtypepoc" value="#{typepocController.selected.idtypepoc}" title="#{bundle.CreateTypepocTitle_idtypepoc}" />
+                    <h:outputLabel value="#{bundle.CreateTypepocLabel_fonction}" for="fonction" />
+                    <h:inputText id="fonction" value="#{typepocController.selected.fonction}" title="#{bundle.CreateTypepocTitle_fonction}" required="true" requiredMessage="#{bundle.CreateTypepocRequiredMessage_fonction}"/>
+                    <h:outputLabel value="#{bundle.CreateTypepocLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{typepocController.selected.description}" title="#{bundle.CreateTypepocTitle_description}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{typepocController.create}" value="#{bundle.CreateTypepocSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{typepocController.prepareList}" value="#{bundle.CreateTypepocShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTypepocIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

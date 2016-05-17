@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateIndividuTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_idindividu}" for="idindividu" />
+                    <h:inputText id="idindividu" value="#{individuController.selected.idindividu}" title="#{bundle.CreateIndividuTitle_idindividu}" />
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_nom}" for="nom" />
+                    <h:inputText id="nom" value="#{individuController.selected.nom}" title="#{bundle.CreateIndividuTitle_nom}" required="true" requiredMessage="#{bundle.CreateIndividuRequiredMessage_nom}"/>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_prenom}" for="prenom" />
+                    <h:inputText id="prenom" value="#{individuController.selected.prenom}" title="#{bundle.CreateIndividuTitle_prenom}" required="true" requiredMessage="#{bundle.CreateIndividuRequiredMessage_prenom}"/>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_datenaissance}" for="datenaissance" />
+                    <h:inputText id="datenaissance" value="#{individuController.selected.datenaissance}" title="#{bundle.CreateIndividuTitle_datenaissance}" required="true" requiredMessage="#{bundle.CreateIndividuRequiredMessage_datenaissance}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_cin}" for="cin" />
+                    <h:inputText id="cin" value="#{individuController.selected.cin}" title="#{bundle.CreateIndividuTitle_cin}" required="true" requiredMessage="#{bundle.CreateIndividuRequiredMessage_cin}"/>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_telephone}" for="telephone" />
+                    <h:inputText id="telephone" value="#{individuController.selected.telephone}" title="#{bundle.CreateIndividuTitle_telephone}" required="true" requiredMessage="#{bundle.CreateIndividuRequiredMessage_telephone}"/>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_telephone2}" for="telephone2" />
+                    <h:inputText id="telephone2" value="#{individuController.selected.telephone2}" title="#{bundle.CreateIndividuTitle_telephone2}" />
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_sexe}" for="sexe" />
+                    <h:inputText id="sexe" value="#{individuController.selected.sexe}" title="#{bundle.CreateIndividuTitle_sexe}" required="true" requiredMessage="#{bundle.CreateIndividuRequiredMessage_sexe}"/>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{individuController.selected.email}" title="#{bundle.CreateIndividuTitle_email}" required="true" requiredMessage="#{bundle.CreateIndividuRequiredMessage_email}"/>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_lieunaissance}" for="lieunaissance" />
+                    <h:inputText id="lieunaissance" value="#{individuController.selected.lieunaissance}" title="#{bundle.CreateIndividuTitle_lieunaissance}" />
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_adresse}" for="adresse" />
+                    <h:inputText id="adresse" value="#{individuController.selected.adresse}" title="#{bundle.CreateIndividuTitle_adresse}" required="true" requiredMessage="#{bundle.CreateIndividuRequiredMessage_adresse}"/>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_dateenregistrement}" for="dateenregistrement" />
+                    <h:inputText id="dateenregistrement" value="#{individuController.selected.dateenregistrement}" title="#{bundle.CreateIndividuTitle_dateenregistrement}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_photo}" for="photo" />
+                    <h:inputTextarea rows="4" cols="30" id="photo" value="#{individuController.selected.photo}" title="#{bundle.CreateIndividuTitle_photo}" />
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_empreinte}" for="empreinte" />
+                    <h:inputTextarea rows="4" cols="30" id="empreinte" value="#{individuController.selected.empreinte}" title="#{bundle.CreateIndividuTitle_empreinte}" />
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_niveau}" for="niveau" />
+                    <h:inputText id="niveau" value="#{individuController.selected.niveau}" title="#{bundle.CreateIndividuTitle_niveau}" />
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_utilisateur}" for="utilisateur" />
+                    <h:selectOneMenu id="utilisateur" value="#{individuController.selected.utilisateur}" title="#{bundle.CreateIndividuTitle_utilisateur}" >
+                        <f:selectItems value="#{utilisateurController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_idorganisation}" for="idorganisation" />
+                    <h:selectOneMenu id="idorganisation" value="#{individuController.selected.idorganisation}" title="#{bundle.CreateIndividuTitle_idorganisation}" >
+                        <f:selectItems value="#{organisationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_idprf}" for="idprf" />
+                    <h:selectOneMenu id="idprf" value="#{individuController.selected.idprf}" title="#{bundle.CreateIndividuTitle_idprf}" >
+                        <f:selectItems value="#{personnereferenceController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{individuController.create}" value="#{bundle.CreateIndividuSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{individuController.prepareList}" value="#{bundle.CreateIndividuShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateIndividuIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

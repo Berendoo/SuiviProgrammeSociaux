@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditContratTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditContratLabel_idcontrat}" for="idcontrat" />
+                    <h:inputText id="idcontrat" value="#{contratController.selected.idcontrat}" title="#{bundle.EditContratTitle_idcontrat}" />
+                    <h:outputLabel value="#{bundle.EditContratLabel_datedebut}" for="datedebut" />
+                    <h:inputText id="datedebut" value="#{contratController.selected.datedebut}" title="#{bundle.EditContratTitle_datedebut}" required="true" requiredMessage="#{bundle.EditContratRequiredMessage_datedebut}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditContratLabel_datefin}" for="datefin" />
+                    <h:inputText id="datefin" value="#{contratController.selected.datefin}" title="#{bundle.EditContratTitle_datefin}" required="true" requiredMessage="#{bundle.EditContratRequiredMessage_datefin}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditContratLabel_motif}" for="motif" />
+                    <h:inputText id="motif" value="#{contratController.selected.motif}" title="#{bundle.EditContratTitle_motif}" required="true" requiredMessage="#{bundle.EditContratRequiredMessage_motif}"/>
+                    <h:outputLabel value="#{bundle.EditContratLabel_iddistributeur}" for="iddistributeur" />
+                    <h:selectOneMenu id="iddistributeur" value="#{contratController.selected.iddistributeur}" title="#{bundle.EditContratTitle_iddistributeur}" required="true" requiredMessage="#{bundle.EditContratRequiredMessage_iddistributeur}">
+                        <f:selectItems value="#{distributeurController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditContratLabel_idprojet}" for="idprojet" />
+                    <h:selectOneMenu id="idprojet" value="#{contratController.selected.idprojet}" title="#{bundle.EditContratTitle_idprojet}" required="true" requiredMessage="#{bundle.EditContratRequiredMessage_idprojet}">
+                        <f:selectItems value="#{projetController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{contratController.update}" value="#{bundle.EditContratSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditContratViewLink}"/>
+                <br />
+                <h:commandLink action="#{contratController.prepareList}" value="#{bundle.EditContratShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditContratIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

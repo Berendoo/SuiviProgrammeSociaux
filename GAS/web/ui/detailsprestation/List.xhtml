@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDetailsprestationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDetailsprestationEmpty}" rendered="#{detailsprestationController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{detailsprestationController.items.rowCount > 0}">
+                    <h:outputText value="#{detailsprestationController.pagination.pageFirstItem + 1}..#{detailsprestationController.pagination.pageLastItem + 1}/#{detailsprestationController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{detailsprestationController.previous}" value="#{bundle.Previous} #{detailsprestationController.pagination.pageSize}" rendered="#{detailsprestationController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{detailsprestationController.next}" value="#{bundle.Next} #{detailsprestationController.pagination.pageSize}" rendered="#{detailsprestationController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{detailsprestationController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_iddetailsprestation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iddetailsprestation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_quantite}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.quantite}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_datelivraison}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.datelivraison}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_nofacture}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nofacture}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_cin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cin}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_datelancement}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.datelancement}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_pin}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pin}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_periode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.periode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_montant}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.montant}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_devise}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.devise}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_pyPayerId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pyPayerId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_pyPayrollNo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pyPayrollNo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_pyPayeeId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pyPayeeId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_dossier}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.dossier}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_numeroch}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroch}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_serie}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.serie}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_idcommune}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idcommune}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_idfiche}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idfiche}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetailsprestationTitle_idprestation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idprestation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{detailsprestationController.prepareView}" value="#{bundle.ListDetailsprestationViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detailsprestationController.prepareEdit}" value="#{bundle.ListDetailsprestationEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detailsprestationController.destroy}" value="#{bundle.ListDetailsprestationDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{detailsprestationController.prepareCreate}" value="#{bundle.ListDetailsprestationCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDetailsprestationIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

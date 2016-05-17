@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTypebeneficiaireTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTypebeneficiaireLabel_idtypebeneficiaire}" for="idtypebeneficiaire" />
+                    <h:inputText id="idtypebeneficiaire" value="#{typebeneficiaireController.selected.idtypebeneficiaire}" title="#{bundle.CreateTypebeneficiaireTitle_idtypebeneficiaire}" />
+                    <h:outputLabel value="#{bundle.CreateTypebeneficiaireLabel_nomtypebeneficiaire}" for="nomtypebeneficiaire" />
+                    <h:inputText id="nomtypebeneficiaire" value="#{typebeneficiaireController.selected.nomtypebeneficiaire}" title="#{bundle.CreateTypebeneficiaireTitle_nomtypebeneficiaire}" required="true" requiredMessage="#{bundle.CreateTypebeneficiaireRequiredMessage_nomtypebeneficiaire}"/>
+                    <h:outputLabel value="#{bundle.CreateTypebeneficiaireLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{typebeneficiaireController.selected.description}" title="#{bundle.CreateTypebeneficiaireTitle_description}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{typebeneficiaireController.create}" value="#{bundle.CreateTypebeneficiaireSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{typebeneficiaireController.prepareList}" value="#{bundle.CreateTypebeneficiaireShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTypebeneficiaireIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPersonnereferenceTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPersonnereferenceEmpty}" rendered="#{personnereferenceController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{personnereferenceController.items.rowCount > 0}">
+                    <h:outputText value="#{personnereferenceController.pagination.pageFirstItem + 1}..#{personnereferenceController.pagination.pageLastItem + 1}/#{personnereferenceController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{personnereferenceController.previous}" value="#{bundle.Previous} #{personnereferenceController.pagination.pageSize}" rendered="#{personnereferenceController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{personnereferenceController.next}" value="#{bundle.Next} #{personnereferenceController.pagination.pageSize}" rendered="#{personnereferenceController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{personnereferenceController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_idprf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idprf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_nomprf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomprf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_prenomprf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.prenomprf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_adresseprf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.adresseprf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_cinprf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cinprf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_telephoneprf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telephoneprf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_fonction}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fonction}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_sexeprf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sexeprf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_emailprf}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emailprf}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_idcommune}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idcommune}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_idorganisation}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idorganisation}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPersonnereferenceTitle_idtypepoc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idtypepoc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{personnereferenceController.prepareView}" value="#{bundle.ListPersonnereferenceViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{personnereferenceController.prepareEdit}" value="#{bundle.ListPersonnereferenceEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{personnereferenceController.destroy}" value="#{bundle.ListPersonnereferenceDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{personnereferenceController.prepareCreate}" value="#{bundle.ListPersonnereferenceCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPersonnereferenceIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

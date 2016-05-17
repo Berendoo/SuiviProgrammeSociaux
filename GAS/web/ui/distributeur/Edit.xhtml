@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDistributeurTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDistributeurLabel_iddistributeur}" for="iddistributeur" />
+                    <h:inputText id="iddistributeur" value="#{distributeurController.selected.iddistributeur}" title="#{bundle.EditDistributeurTitle_iddistributeur}" />
+                    <h:outputLabel value="#{bundle.EditDistributeurLabel_nomdistributeur}" for="nomdistributeur" />
+                    <h:inputText id="nomdistributeur" value="#{distributeurController.selected.nomdistributeur}" title="#{bundle.EditDistributeurTitle_nomdistributeur}" required="true" requiredMessage="#{bundle.EditDistributeurRequiredMessage_nomdistributeur}"/>
+                    <h:outputLabel value="#{bundle.EditDistributeurLabel_telephone}" for="telephone" />
+                    <h:inputText id="telephone" value="#{distributeurController.selected.telephone}" title="#{bundle.EditDistributeurTitle_telephone}" required="true" requiredMessage="#{bundle.EditDistributeurRequiredMessage_telephone}"/>
+                    <h:outputLabel value="#{bundle.EditDistributeurLabel_emaildistributeur}" for="emaildistributeur" />
+                    <h:inputText id="emaildistributeur" value="#{distributeurController.selected.emaildistributeur}" title="#{bundle.EditDistributeurTitle_emaildistributeur}" required="true" requiredMessage="#{bundle.EditDistributeurRequiredMessage_emaildistributeur}"/>
+                    <h:outputLabel value="#{bundle.EditDistributeurLabel_adressedistributeur}" for="adressedistributeur" />
+                    <h:inputText id="adressedistributeur" value="#{distributeurController.selected.adressedistributeur}" title="#{bundle.EditDistributeurTitle_adressedistributeur}" required="true" requiredMessage="#{bundle.EditDistributeurRequiredMessage_adressedistributeur}"/>
+                    <h:outputLabel value="#{bundle.EditDistributeurLabel_numeropatente}" for="numeropatente" />
+                    <h:inputText id="numeropatente" value="#{distributeurController.selected.numeropatente}" title="#{bundle.EditDistributeurTitle_numeropatente}" required="true" requiredMessage="#{bundle.EditDistributeurRequiredMessage_numeropatente}"/>
+                    <h:outputLabel value="#{bundle.EditDistributeurLabel_nif}" for="nif" />
+                    <h:inputText id="nif" value="#{distributeurController.selected.nif}" title="#{bundle.EditDistributeurTitle_nif}" required="true" requiredMessage="#{bundle.EditDistributeurRequiredMessage_nif}"/>
+                    <h:outputLabel value="#{bundle.EditDistributeurLabel_raisonsociale}" for="raisonsociale" />
+                    <h:inputText id="raisonsociale" value="#{distributeurController.selected.raisonsociale}" title="#{bundle.EditDistributeurTitle_raisonsociale}" required="true" requiredMessage="#{bundle.EditDistributeurRequiredMessage_raisonsociale}"/>
+                    <h:outputLabel value="#{bundle.EditDistributeurLabel_idcommune}" for="idcommune" />
+                    <h:selectOneMenu id="idcommune" value="#{distributeurController.selected.idcommune}" title="#{bundle.EditDistributeurTitle_idcommune}" required="true" requiredMessage="#{bundle.EditDistributeurRequiredMessage_idcommune}">
+                        <f:selectItems value="#{communeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{distributeurController.update}" value="#{bundle.EditDistributeurSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDistributeurViewLink}"/>
+                <br />
+                <h:commandLink action="#{distributeurController.prepareList}" value="#{bundle.EditDistributeurShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDistributeurIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

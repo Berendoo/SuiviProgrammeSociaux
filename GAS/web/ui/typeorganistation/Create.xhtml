@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTypeorganistationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTypeorganistationLabel_idtypeorganisation}" for="idtypeorganisation" />
+                    <h:inputText id="idtypeorganisation" value="#{typeorganistationController.selected.idtypeorganisation}" title="#{bundle.CreateTypeorganistationTitle_idtypeorganisation}" />
+                    <h:outputLabel value="#{bundle.CreateTypeorganistationLabel_nomtype}" for="nomtype" />
+                    <h:inputText id="nomtype" value="#{typeorganistationController.selected.nomtype}" title="#{bundle.CreateTypeorganistationTitle_nomtype}" required="true" requiredMessage="#{bundle.CreateTypeorganistationRequiredMessage_nomtype}"/>
+                    <h:outputLabel value="#{bundle.CreateTypeorganistationLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{typeorganistationController.selected.description}" title="#{bundle.CreateTypeorganistationTitle_description}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{typeorganistationController.create}" value="#{bundle.CreateTypeorganistationSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{typeorganistationController.prepareList}" value="#{bundle.CreateTypeorganistationShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTypeorganistationIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

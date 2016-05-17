@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDonateurTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDonateurLabel_iddonateur}"/>
+                    <h:outputText value="#{donateurController.selected.iddonateur}" title="#{bundle.ViewDonateurTitle_iddonateur}"/>
+                    <h:outputText value="#{bundle.ViewDonateurLabel_nomdonateur}"/>
+                    <h:outputText value="#{donateurController.selected.nomdonateur}" title="#{bundle.ViewDonateurTitle_nomdonateur}"/>
+                    <h:outputText value="#{bundle.ViewDonateurLabel_adresse}"/>
+                    <h:outputText value="#{donateurController.selected.adresse}" title="#{bundle.ViewDonateurTitle_adresse}"/>
+                    <h:outputText value="#{bundle.ViewDonateurLabel_telephone1}"/>
+                    <h:outputText value="#{donateurController.selected.telephone1}" title="#{bundle.ViewDonateurTitle_telephone1}"/>
+                    <h:outputText value="#{bundle.ViewDonateurLabel_telephone2}"/>
+                    <h:outputText value="#{donateurController.selected.telephone2}" title="#{bundle.ViewDonateurTitle_telephone2}"/>
+                    <h:outputText value="#{bundle.ViewDonateurLabel_siege}"/>
+                    <h:outputText value="#{donateurController.selected.siege}" title="#{bundle.ViewDonateurTitle_siege}"/>
+                    <h:outputText value="#{bundle.ViewDonateurLabel_website}"/>
+                    <h:outputText value="#{donateurController.selected.website}" title="#{bundle.ViewDonateurTitle_website}"/>
+                    <h:outputText value="#{bundle.ViewDonateurLabel_typedonateur}"/>
+                    <h:outputText value="#{donateurController.selected.typedonateur}" title="#{bundle.ViewDonateurTitle_typedonateur}"/>
+                    <h:outputText value="#{bundle.ViewDonateurLabel_email}"/>
+                    <h:outputText value="#{donateurController.selected.email}" title="#{bundle.ViewDonateurTitle_email}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{donateurController.destroyAndView}" value="#{bundle.ViewDonateurDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDonateurEditLink}"/>
+                <br />
+                <h:commandLink action="#{donateurController.prepareCreate}" value="#{bundle.ViewDonateurCreateLink}" />
+                <br />
+                <h:commandLink action="#{donateurController.prepareList}" value="#{bundle.ViewDonateurShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDonateurIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

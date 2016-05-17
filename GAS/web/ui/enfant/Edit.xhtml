@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEnfantTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEnfantLabel_idenfant}" for="idenfant" />
+                    <h:inputText id="idenfant" value="#{enfantController.selected.idenfant}" title="#{bundle.EditEnfantTitle_idenfant}" />
+                    <h:outputLabel value="#{bundle.EditEnfantLabel_nomenfant}" for="nomenfant" />
+                    <h:inputText id="nomenfant" value="#{enfantController.selected.nomenfant}" title="#{bundle.EditEnfantTitle_nomenfant}" required="true" requiredMessage="#{bundle.EditEnfantRequiredMessage_nomenfant}"/>
+                    <h:outputLabel value="#{bundle.EditEnfantLabel_prenomenfant}" for="prenomenfant" />
+                    <h:inputText id="prenomenfant" value="#{enfantController.selected.prenomenfant}" title="#{bundle.EditEnfantTitle_prenomenfant}" required="true" requiredMessage="#{bundle.EditEnfantRequiredMessage_prenomenfant}"/>
+                    <h:outputLabel value="#{bundle.EditEnfantLabel_datadenaissanceenfant}" for="datadenaissanceenfant" />
+                    <h:inputText id="datadenaissanceenfant" value="#{enfantController.selected.datadenaissanceenfant}" title="#{bundle.EditEnfantTitle_datadenaissanceenfant}" required="true" requiredMessage="#{bundle.EditEnfantRequiredMessage_datadenaissanceenfant}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditEnfantLabel_sexeenfant}" for="sexeenfant" />
+                    <h:inputText id="sexeenfant" value="#{enfantController.selected.sexeenfant}" title="#{bundle.EditEnfantTitle_sexeenfant}" required="true" requiredMessage="#{bundle.EditEnfantRequiredMessage_sexeenfant}"/>
+                    <h:outputLabel value="#{bundle.EditEnfantLabel_niveau}" for="niveau" />
+                    <h:inputText id="niveau" value="#{enfantController.selected.niveau}" title="#{bundle.EditEnfantTitle_niveau}" required="true" requiredMessage="#{bundle.EditEnfantRequiredMessage_niveau}"/>
+                    <h:outputLabel value="#{bundle.EditEnfantLabel_idindividu}" for="idindividu" />
+                    <h:selectOneMenu id="idindividu" value="#{enfantController.selected.idindividu}" title="#{bundle.EditEnfantTitle_idindividu}" required="true" requiredMessage="#{bundle.EditEnfantRequiredMessage_idindividu}">
+                        <f:selectItems value="#{individuController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditEnfantLabel_idorganisation}" for="idorganisation" />
+                    <h:selectOneMenu id="idorganisation" value="#{enfantController.selected.idorganisation}" title="#{bundle.EditEnfantTitle_idorganisation}" required="true" requiredMessage="#{bundle.EditEnfantRequiredMessage_idorganisation}">
+                        <f:selectItems value="#{organisationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{enfantController.update}" value="#{bundle.EditEnfantSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEnfantViewLink}"/>
+                <br />
+                <h:commandLink action="#{enfantController.prepareList}" value="#{bundle.EditEnfantShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEnfantIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

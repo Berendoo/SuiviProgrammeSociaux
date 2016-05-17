@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateLogTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateLogLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{logController.selected.id}" title="#{bundle.CreateLogTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateLogLabel_login}" for="login" />
+                    <h:inputText id="login" value="#{logController.selected.login}" title="#{bundle.CreateLogTitle_login}" required="true" requiredMessage="#{bundle.CreateLogRequiredMessage_login}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateLogLabel_pageURL}" for="pageURL" />
+                    <h:inputText id="pageURL" value="#{logController.selected.pageURL}" title="#{bundle.CreateLogTitle_pageURL}" required="true" requiredMessage="#{bundle.CreateLogRequiredMessage_pageURL}"/>
+                    <h:outputLabel value="#{bundle.CreateLogLabel_action}" for="action" />
+                    <h:inputText id="action" value="#{logController.selected.action}" title="#{bundle.CreateLogTitle_action}" required="true" requiredMessage="#{bundle.CreateLogRequiredMessage_action}"/>
+                    <h:outputLabel value="#{bundle.CreateLogLabel_logout}" for="logout" />
+                    <h:inputText id="logout" value="#{logController.selected.logout}" title="#{bundle.CreateLogTitle_logout}" required="true" requiredMessage="#{bundle.CreateLogRequiredMessage_logout}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateLogLabel_idindividu}" for="idindividu" />
+                    <h:selectOneMenu id="idindividu" value="#{logController.selected.idindividu}" title="#{bundle.CreateLogTitle_idindividu}" required="true" requiredMessage="#{bundle.CreateLogRequiredMessage_idindividu}">
+                        <f:selectItems value="#{utilisateurController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{logController.create}" value="#{bundle.CreateLogSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{logController.prepareList}" value="#{bundle.CreateLogShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateLogIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

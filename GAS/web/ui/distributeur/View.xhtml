@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDistributeurTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDistributeurLabel_iddistributeur}"/>
+                    <h:outputText value="#{distributeurController.selected.iddistributeur}" title="#{bundle.ViewDistributeurTitle_iddistributeur}"/>
+                    <h:outputText value="#{bundle.ViewDistributeurLabel_nomdistributeur}"/>
+                    <h:outputText value="#{distributeurController.selected.nomdistributeur}" title="#{bundle.ViewDistributeurTitle_nomdistributeur}"/>
+                    <h:outputText value="#{bundle.ViewDistributeurLabel_telephone}"/>
+                    <h:outputText value="#{distributeurController.selected.telephone}" title="#{bundle.ViewDistributeurTitle_telephone}"/>
+                    <h:outputText value="#{bundle.ViewDistributeurLabel_emaildistributeur}"/>
+                    <h:outputText value="#{distributeurController.selected.emaildistributeur}" title="#{bundle.ViewDistributeurTitle_emaildistributeur}"/>
+                    <h:outputText value="#{bundle.ViewDistributeurLabel_adressedistributeur}"/>
+                    <h:outputText value="#{distributeurController.selected.adressedistributeur}" title="#{bundle.ViewDistributeurTitle_adressedistributeur}"/>
+                    <h:outputText value="#{bundle.ViewDistributeurLabel_numeropatente}"/>
+                    <h:outputText value="#{distributeurController.selected.numeropatente}" title="#{bundle.ViewDistributeurTitle_numeropatente}"/>
+                    <h:outputText value="#{bundle.ViewDistributeurLabel_nif}"/>
+                    <h:outputText value="#{distributeurController.selected.nif}" title="#{bundle.ViewDistributeurTitle_nif}"/>
+                    <h:outputText value="#{bundle.ViewDistributeurLabel_raisonsociale}"/>
+                    <h:outputText value="#{distributeurController.selected.raisonsociale}" title="#{bundle.ViewDistributeurTitle_raisonsociale}"/>
+                    <h:outputText value="#{bundle.ViewDistributeurLabel_idcommune}"/>
+                    <h:outputText value="#{distributeurController.selected.idcommune}" title="#{bundle.ViewDistributeurTitle_idcommune}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{distributeurController.destroyAndView}" value="#{bundle.ViewDistributeurDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDistributeurEditLink}"/>
+                <br />
+                <h:commandLink action="#{distributeurController.prepareCreate}" value="#{bundle.ViewDistributeurCreateLink}" />
+                <br />
+                <h:commandLink action="#{distributeurController.prepareList}" value="#{bundle.ViewDistributeurShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDistributeurIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

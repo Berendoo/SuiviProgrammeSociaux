@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDonateurTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDonateurLabel_iddonateur}" for="iddonateur" />
+                    <h:inputText id="iddonateur" value="#{donateurController.selected.iddonateur}" title="#{bundle.EditDonateurTitle_iddonateur}" />
+                    <h:outputLabel value="#{bundle.EditDonateurLabel_nomdonateur}" for="nomdonateur" />
+                    <h:inputText id="nomdonateur" value="#{donateurController.selected.nomdonateur}" title="#{bundle.EditDonateurTitle_nomdonateur}" required="true" requiredMessage="#{bundle.EditDonateurRequiredMessage_nomdonateur}"/>
+                    <h:outputLabel value="#{bundle.EditDonateurLabel_adresse}" for="adresse" />
+                    <h:inputText id="adresse" value="#{donateurController.selected.adresse}" title="#{bundle.EditDonateurTitle_adresse}" required="true" requiredMessage="#{bundle.EditDonateurRequiredMessage_adresse}"/>
+                    <h:outputLabel value="#{bundle.EditDonateurLabel_telephone1}" for="telephone1" />
+                    <h:inputText id="telephone1" value="#{donateurController.selected.telephone1}" title="#{bundle.EditDonateurTitle_telephone1}" required="true" requiredMessage="#{bundle.EditDonateurRequiredMessage_telephone1}"/>
+                    <h:outputLabel value="#{bundle.EditDonateurLabel_telephone2}" for="telephone2" />
+                    <h:inputText id="telephone2" value="#{donateurController.selected.telephone2}" title="#{bundle.EditDonateurTitle_telephone2}" />
+                    <h:outputLabel value="#{bundle.EditDonateurLabel_siege}" for="siege" />
+                    <h:inputText id="siege" value="#{donateurController.selected.siege}" title="#{bundle.EditDonateurTitle_siege}" />
+                    <h:outputLabel value="#{bundle.EditDonateurLabel_website}" for="website" />
+                    <h:inputText id="website" value="#{donateurController.selected.website}" title="#{bundle.EditDonateurTitle_website}" />
+                    <h:outputLabel value="#{bundle.EditDonateurLabel_typedonateur}" for="typedonateur" />
+                    <h:inputText id="typedonateur" value="#{donateurController.selected.typedonateur}" title="#{bundle.EditDonateurTitle_typedonateur}" required="true" requiredMessage="#{bundle.EditDonateurRequiredMessage_typedonateur}"/>
+                    <h:outputLabel value="#{bundle.EditDonateurLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{donateurController.selected.email}" title="#{bundle.EditDonateurTitle_email}" required="true" requiredMessage="#{bundle.EditDonateurRequiredMessage_email}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{donateurController.update}" value="#{bundle.EditDonateurSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDonateurViewLink}"/>
+                <br />
+                <h:commandLink action="#{donateurController.prepareList}" value="#{bundle.EditDonateurShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDonateurIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTypepocTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTypepocLabel_idtypepoc}"/>
+                    <h:outputText value="#{typepocController.selected.idtypepoc}" title="#{bundle.ViewTypepocTitle_idtypepoc}"/>
+                    <h:outputText value="#{bundle.ViewTypepocLabel_fonction}"/>
+                    <h:outputText value="#{typepocController.selected.fonction}" title="#{bundle.ViewTypepocTitle_fonction}"/>
+                    <h:outputText value="#{bundle.ViewTypepocLabel_description}"/>
+                    <h:outputText value="#{typepocController.selected.description}" title="#{bundle.ViewTypepocTitle_description}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{typepocController.destroyAndView}" value="#{bundle.ViewTypepocDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTypepocEditLink}"/>
+                <br />
+                <h:commandLink action="#{typepocController.prepareCreate}" value="#{bundle.ViewTypepocCreateLink}" />
+                <br />
+                <h:commandLink action="#{typepocController.prepareList}" value="#{bundle.ViewTypepocShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTypepocIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

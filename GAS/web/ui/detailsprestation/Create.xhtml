@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDetailsprestationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_iddetailsprestation}" for="iddetailsprestation" />
+                    <h:inputText id="iddetailsprestation" value="#{detailsprestationController.selected.iddetailsprestation}" title="#{bundle.CreateDetailsprestationTitle_iddetailsprestation}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_quantite}" for="quantite" />
+                    <h:inputText id="quantite" value="#{detailsprestationController.selected.quantite}" title="#{bundle.CreateDetailsprestationTitle_quantite}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_datelivraison}" for="datelivraison" />
+                    <h:inputText id="datelivraison" value="#{detailsprestationController.selected.datelivraison}" title="#{bundle.CreateDetailsprestationTitle_datelivraison}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_nofacture}" for="nofacture" />
+                    <h:inputText id="nofacture" value="#{detailsprestationController.selected.nofacture}" title="#{bundle.CreateDetailsprestationTitle_nofacture}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_cin}" for="cin" />
+                    <h:inputText id="cin" value="#{detailsprestationController.selected.cin}" title="#{bundle.CreateDetailsprestationTitle_cin}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_datelancement}" for="datelancement" />
+                    <h:inputText id="datelancement" value="#{detailsprestationController.selected.datelancement}" title="#{bundle.CreateDetailsprestationTitle_datelancement}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_pin}" for="pin" />
+                    <h:inputText id="pin" value="#{detailsprestationController.selected.pin}" title="#{bundle.CreateDetailsprestationTitle_pin}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_periode}" for="periode" />
+                    <h:inputText id="periode" value="#{detailsprestationController.selected.periode}" title="#{bundle.CreateDetailsprestationTitle_periode}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_montant}" for="montant" />
+                    <h:inputText id="montant" value="#{detailsprestationController.selected.montant}" title="#{bundle.CreateDetailsprestationTitle_montant}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_devise}" for="devise" />
+                    <h:inputText id="devise" value="#{detailsprestationController.selected.devise}" title="#{bundle.CreateDetailsprestationTitle_devise}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_pyPayerId}" for="pyPayerId" />
+                    <h:inputText id="pyPayerId" value="#{detailsprestationController.selected.pyPayerId}" title="#{bundle.CreateDetailsprestationTitle_pyPayerId}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_pyPayrollNo}" for="pyPayrollNo" />
+                    <h:inputText id="pyPayrollNo" value="#{detailsprestationController.selected.pyPayrollNo}" title="#{bundle.CreateDetailsprestationTitle_pyPayrollNo}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_pyPayeeId}" for="pyPayeeId" />
+                    <h:inputText id="pyPayeeId" value="#{detailsprestationController.selected.pyPayeeId}" title="#{bundle.CreateDetailsprestationTitle_pyPayeeId}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_dossier}" for="dossier" />
+                    <h:inputText id="dossier" value="#{detailsprestationController.selected.dossier}" title="#{bundle.CreateDetailsprestationTitle_dossier}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_numeroch}" for="numeroch" />
+                    <h:inputText id="numeroch" value="#{detailsprestationController.selected.numeroch}" title="#{bundle.CreateDetailsprestationTitle_numeroch}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_serie}" for="serie" />
+                    <h:inputText id="serie" value="#{detailsprestationController.selected.serie}" title="#{bundle.CreateDetailsprestationTitle_serie}" />
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_idcommune}" for="idcommune" />
+                    <h:selectOneMenu id="idcommune" value="#{detailsprestationController.selected.idcommune}" title="#{bundle.CreateDetailsprestationTitle_idcommune}" required="true" requiredMessage="#{bundle.CreateDetailsprestationRequiredMessage_idcommune}">
+                        <f:selectItems value="#{communeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_idfiche}" for="idfiche" />
+                    <h:selectOneMenu id="idfiche" value="#{detailsprestationController.selected.idfiche}" title="#{bundle.CreateDetailsprestationTitle_idfiche}" required="true" requiredMessage="#{bundle.CreateDetailsprestationRequiredMessage_idfiche}">
+                        <f:selectItems value="#{fichebeneficiaireController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDetailsprestationLabel_idprestation}" for="idprestation" />
+                    <h:selectOneMenu id="idprestation" value="#{detailsprestationController.selected.idprestation}" title="#{bundle.CreateDetailsprestationTitle_idprestation}" required="true" requiredMessage="#{bundle.CreateDetailsprestationRequiredMessage_idprestation}">
+                        <f:selectItems value="#{prestationController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{detailsprestationController.create}" value="#{bundle.CreateDetailsprestationSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{detailsprestationController.prepareList}" value="#{bundle.CreateDetailsprestationShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDetailsprestationIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

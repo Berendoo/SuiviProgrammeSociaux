@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDistributeurTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDistributeurEmpty}" rendered="#{distributeurController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{distributeurController.items.rowCount > 0}">
+                    <h:outputText value="#{distributeurController.pagination.pageFirstItem + 1}..#{distributeurController.pagination.pageLastItem + 1}/#{distributeurController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{distributeurController.previous}" value="#{bundle.Previous} #{distributeurController.pagination.pageSize}" rendered="#{distributeurController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{distributeurController.next}" value="#{bundle.Next} #{distributeurController.pagination.pageSize}" rendered="#{distributeurController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{distributeurController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDistributeurTitle_iddistributeur}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.iddistributeur}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDistributeurTitle_nomdistributeur}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nomdistributeur}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDistributeurTitle_telephone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telephone}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDistributeurTitle_emaildistributeur}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emaildistributeur}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDistributeurTitle_adressedistributeur}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.adressedistributeur}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDistributeurTitle_numeropatente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeropatente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDistributeurTitle_nif}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nif}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDistributeurTitle_raisonsociale}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.raisonsociale}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDistributeurTitle_idcommune}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idcommune}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{distributeurController.prepareView}" value="#{bundle.ListDistributeurViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{distributeurController.prepareEdit}" value="#{bundle.ListDistributeurEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{distributeurController.destroy}" value="#{bundle.ListDistributeurDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{distributeurController.prepareCreate}" value="#{bundle.ListDistributeurCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDistributeurIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
