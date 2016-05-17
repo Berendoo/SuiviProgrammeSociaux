@@ -121,7 +121,8 @@ public class Typebeneficiaire implements Serializable {
 
     @Override
     public String toString() {
-        return "ht.gouv.faes.entity.Typebeneficiaire[ idtypebeneficiaire=" + idtypebeneficiaire + " ]";
+        //return "ht.gouv.faes.entity.Typebeneficiaire[ idtypebeneficiaire=" + idtypebeneficiaire + " ]";
+        return nomtypebeneficiaire;
     }
     
 }

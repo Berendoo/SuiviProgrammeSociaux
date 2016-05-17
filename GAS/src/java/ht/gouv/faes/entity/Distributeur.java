@@ -223,7 +223,8 @@ public class Distributeur implements Serializable {
 
     @Override
     public String toString() {
-        return "ht.gouv.faes.entity.Distributeur[ iddistributeur=" + iddistributeur + " ]";
+        //return "ht.gouv.faes.entity.Distributeur[ iddistributeur=" + iddistributeur + " ]";
+        return nomdistributeur;
     }
     
 }

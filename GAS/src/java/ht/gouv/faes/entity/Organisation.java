@@ -182,7 +182,8 @@ public class Organisation implements Serializable {
 
     @Override
     public String toString() {
-        return "ht.gouv.faes.entity.Organisation[ idorganisation=" + idorganisation + " ]";
+        //return "ht.gouv.faes.entity.Organisation[ idorganisation=" + idorganisation + " ]";
+        return nomorganisation;
     }
     
 }

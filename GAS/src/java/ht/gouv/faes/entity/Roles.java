@@ -109,7 +109,8 @@ public class Roles implements Serializable {
 
     @Override
     public String toString() {
-        return "ht.gouv.faes.entity.Roles[ idprivilege=" + idprivilege + " ]";
+        //return "ht.gouv.faes.entity.Roles[ idprivilege=" + idprivilege + " ]";
+        return privilege;
     }
     
 }

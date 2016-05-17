@@ -134,7 +134,8 @@ public class Prestation implements Serializable {
 
     @Override
     public String toString() {
-        return "ht.gouv.faes.entity.Prestation[ idprestation=" + idprestation + " ]";
+        //return "ht.gouv.faes.entity.Prestation[ idprestation=" + idprestation + " ]";
+        return nomprestation;
     }
     
 }

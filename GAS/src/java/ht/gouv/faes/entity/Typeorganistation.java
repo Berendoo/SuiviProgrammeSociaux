@@ -121,7 +121,8 @@ public class Typeorganistation implements Serializable {
 
     @Override
     public String toString() {
-        return "ht.gouv.faes.entity.Typeorganistation[ idtypeorganisation=" + idtypeorganisation + " ]";
+        //return "ht.gouv.faes.entity.Typeorganistation[ idtypeorganisation=" + idtypeorganisation + " ]";
+        return nomtype;
     }
     
 }

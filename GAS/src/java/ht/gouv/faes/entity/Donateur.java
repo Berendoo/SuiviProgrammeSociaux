@@ -206,7 +206,8 @@ public class Donateur implements Serializable {
 
     @Override
     public String toString() {
-        return "ht.gouv.faes.entity.Donateur[ iddonateur=" + iddonateur + " ]";
+        //return "ht.gouv.faes.entity.Donateur[ iddonateur=" + iddonateur + " ]";
+        return nomdonateur;
     }
     
 }

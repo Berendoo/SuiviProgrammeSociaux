@@ -121,7 +121,8 @@ public class Typepoc implements Serializable {
 
     @Override
     public String toString() {
-        return "ht.gouv.faes.entity.Typepoc[ idtypepoc=" + idtypepoc + " ]";
+        //return "ht.gouv.faes.entity.Typepoc[ idtypepoc=" + idtypepoc + " ]";
+        return fonction;
     }
     
 }
