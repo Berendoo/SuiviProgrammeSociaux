@@ -74,6 +74,12 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListUtilisateurTitle_createdBy}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.createdBy}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
                             <h:commandLink action="#{utilisateurController.prepareView}" value="#{bundle.ListUtilisateurViewLink}"/>

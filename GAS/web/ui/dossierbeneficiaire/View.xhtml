@@ -17,14 +17,16 @@
                 <h:panelGrid columns="2">
                     <h:outputText value="#{bundle.ViewDossierbeneficiaireLabel_iddossierbeneficiaire}"/>
                     <h:outputText value="#{dossierbeneficiaireController.selected.iddossierbeneficiaire}" title="#{bundle.ViewDossierbeneficiaireTitle_iddossierbeneficiaire}"/>
+                    <h:outputText value="#{bundle.ViewDossierbeneficiaireLabel_idindividu}"/>
+                    <h:outputText value="#{dossierbeneficiaireController.selected.idindividu}" title="#{bundle.ViewDossierbeneficiaireTitle_idindividu}"/>
                     <h:outputText value="#{bundle.ViewDossierbeneficiaireLabel_description}"/>
                     <h:outputText value="#{dossierbeneficiaireController.selected.description}" title="#{bundle.ViewDossierbeneficiaireTitle_description}"/>
                     <h:outputText value="#{bundle.ViewDossierbeneficiaireLabel_datecreation}"/>
                     <h:outputText value="#{dossierbeneficiaireController.selected.datecreation}" title="#{bundle.ViewDossierbeneficiaireTitle_datecreation}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
-                    <h:outputText value="#{bundle.ViewDossierbeneficiaireLabel_idindividu}"/>
-                    <h:outputText value="#{dossierbeneficiaireController.selected.idindividu}" title="#{bundle.ViewDossierbeneficiaireTitle_idindividu}"/>
+                    <h:outputText value="#{bundle.ViewDossierbeneficiaireLabel_createdBy}"/>
+                    <h:outputText value="#{dossierbeneficiaireController.selected.createdBy}" title="#{bundle.ViewDossierbeneficiaireTitle_createdBy}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{dossierbeneficiaireController.destroyAndView}" value="#{bundle.ViewDossierbeneficiaireDestroyLink}"/>

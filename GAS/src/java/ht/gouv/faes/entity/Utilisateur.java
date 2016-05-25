@@ -43,6 +43,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Utilisateur.findByDateexpiration", query = "SELECT u FROM Utilisateur u WHERE u.dateexpiration = :dateexpiration"),
     @NamedQuery(name = "Utilisateur.findByStatut", query = "SELECT u FROM Utilisateur u WHERE u.statut = :statut")})
 public class Utilisateur implements Serializable {
+    @Size(max = 25)
+    @Column(name = "CreatedBy")
+    private String createdBy;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -195,6 +198,14 @@ public class Utilisateur implements Serializable {
     @Override
     public String toString() {
         return "ht.gouv.faes.entity.Utilisateur[ idindividu=" + idindividu + " ]";
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
     
 }

@@ -43,10 +43,6 @@
                     <h:outputText value="#{individuController.selected.dateenregistrement}" title="#{bundle.ViewIndividuTitle_dateenregistrement}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:outputText>
-                    <h:outputText value="#{bundle.ViewIndividuLabel_photo}"/>
-                    <h:outputText value="#{individuController.selected.photo}" title="#{bundle.ViewIndividuTitle_photo}"/>
-                    <h:outputText value="#{bundle.ViewIndividuLabel_empreinte}"/>
-                    <h:outputText value="#{individuController.selected.empreinte}" title="#{bundle.ViewIndividuTitle_empreinte}"/>
                     <h:outputText value="#{bundle.ViewIndividuLabel_niveau}"/>
                     <h:outputText value="#{individuController.selected.niveau}" title="#{bundle.ViewIndividuTitle_niveau}"/>
                     <h:outputText value="#{bundle.ViewIndividuLabel_utilisateur}"/>
@@ -55,6 +51,12 @@
                     <h:outputText value="#{individuController.selected.idorganisation}" title="#{bundle.ViewIndividuTitle_idorganisation}"/>
                     <h:outputText value="#{bundle.ViewIndividuLabel_idprf}"/>
                     <h:outputText value="#{individuController.selected.idprf}" title="#{bundle.ViewIndividuTitle_idprf}"/>
+                    <h:outputText value="#{bundle.ViewIndividuLabel_photo}"/>
+                    <h:outputText value="#{individuController.selected.photo}" title="#{bundle.ViewIndividuTitle_photo}"/>
+                    <h:outputText value="#{bundle.ViewIndividuLabel_empreinte}"/>
+                    <h:outputText value="#{individuController.selected.empreinte}" title="#{bundle.ViewIndividuTitle_empreinte}"/>
+                    <h:outputText value="#{bundle.ViewIndividuLabel_createdBy}"/>
+                    <h:outputText value="#{individuController.selected.createdBy}" title="#{bundle.ViewIndividuTitle_createdBy}"/>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{individuController.destroyAndView}" value="#{bundle.ViewIndividuDestroyLink}"/>

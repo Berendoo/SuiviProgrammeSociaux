@@ -23,12 +23,18 @@
                     <h:inputText id="description" value="#{projetController.selected.description}" title="#{bundle.CreateProjetTitle_description}" required="true" requiredMessage="#{bundle.CreateProjetRequiredMessage_description}"/>
                     <h:outputLabel value="#{bundle.CreateProjetLabel_typeprojet}" for="typeprojet" />
                     <h:inputText id="typeprojet" value="#{projetController.selected.typeprojet}" title="#{bundle.CreateProjetTitle_typeprojet}" required="true" requiredMessage="#{bundle.CreateProjetRequiredMessage_typeprojet}"/>
-                    <h:outputLabel value="#{bundle.CreateProjetLabel_logo}" for="logo" />
-                    <h:inputTextarea rows="4" cols="30" id="logo" value="#{projetController.selected.logo}" title="#{bundle.CreateProjetTitle_logo}" />
                     <h:outputLabel value="#{bundle.CreateProjetLabel_idprogramme}" for="idprogramme" />
                     <h:selectOneMenu id="idprogramme" value="#{projetController.selected.idprogramme}" title="#{bundle.CreateProjetTitle_idprogramme}" required="true" requiredMessage="#{bundle.CreateProjetRequiredMessage_idprogramme}">
                         <f:selectItems value="#{programmeController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateProjetLabel_logo}" for="logo" />
+                    <h:inputTextarea rows="4" cols="30" id="logo" value="#{projetController.selected.logo}" title="#{bundle.CreateProjetTitle_logo}" />
+                    <h:outputLabel value="#{bundle.CreateProjetLabel_createdBy}" for="createdBy" />
+                    <h:inputText id="createdBy" value="#{projetController.selected.createdBy}" title="#{bundle.CreateProjetTitle_createdBy}" />
+                    <h:outputLabel value="#{bundle.CreateProjetLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{projetController.selected.created}" title="#{bundle.CreateProjetTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{projetController.create}" value="#{bundle.CreateProjetSaveLink}" />

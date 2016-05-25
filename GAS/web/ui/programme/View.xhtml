@@ -21,10 +21,16 @@
                     <h:outputText value="#{programmeController.selected.nomprogramme}" title="#{bundle.ViewProgrammeTitle_nomprogramme}"/>
                     <h:outputText value="#{bundle.ViewProgrammeLabel_description}"/>
                     <h:outputText value="#{programmeController.selected.description}" title="#{bundle.ViewProgrammeTitle_description}"/>
-                    <h:outputText value="#{bundle.ViewProgrammeLabel_logo}"/>
-                    <h:outputText value="#{programmeController.selected.logo}" title="#{bundle.ViewProgrammeTitle_logo}"/>
                     <h:outputText value="#{bundle.ViewProgrammeLabel_idinstitution}"/>
                     <h:outputText value="#{programmeController.selected.idinstitution}" title="#{bundle.ViewProgrammeTitle_idinstitution}"/>
+                    <h:outputText value="#{bundle.ViewProgrammeLabel_logo}"/>
+                    <h:outputText value="#{programmeController.selected.logo}" title="#{bundle.ViewProgrammeTitle_logo}"/>
+                    <h:outputText value="#{bundle.ViewProgrammeLabel_createdBy}"/>
+                    <h:outputText value="#{programmeController.selected.createdBy}" title="#{bundle.ViewProgrammeTitle_createdBy}"/>
+                    <h:outputText value="#{bundle.ViewProgrammeLabel_created}"/>
+                    <h:outputText value="#{programmeController.selected.created}" title="#{bundle.ViewProgrammeTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{programmeController.destroyAndView}" value="#{bundle.ViewProgrammeDestroyLink}"/>

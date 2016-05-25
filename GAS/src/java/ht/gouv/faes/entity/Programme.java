@@ -6,6 +6,7 @@
 package ht.gouv.faes.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -21,6 +22,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -39,6 +42,15 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Programme.findByNomprogramme", query = "SELECT p FROM Programme p WHERE p.nomprogramme = :nomprogramme"),
     @NamedQuery(name = "Programme.findByDescription", query = "SELECT p FROM Programme p WHERE p.description = :description")})
 public class Programme implements Serializable {
+    @Lob
+    @Column(name = "LOGO")
+    private byte[] logo;
+    @Size(max = 25)
+    @Column(name = "CreatedBy")
+    private String createdBy;
+    @Column(name = "Created")
+    @Temporal(TemporalType.DATE)
+    private Date created;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = true)
@@ -56,9 +68,6 @@ public class Programme implements Serializable {
     @Size(min = 1, max = 150)
     @Column(name = "DESCRIPTION")
     private String description;
-    @Lob
-    @Column(name = "LOGO")
-    private byte[] logo;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idprogramme")
     private List<Projet> projetList;
     @JoinColumn(name = "IDINSTITUTION", referencedColumnName = "IDINSTITUTION")
@@ -102,13 +111,6 @@ public class Programme implements Serializable {
         this.description = description;
     }
 
-    public byte[] getLogo() {
-        return logo;
-    }
-
-    public void setLogo(byte[] logo) {
-        this.logo = logo;
-    }
 
     @XmlTransient
     public List<Projet> getProjetList() {
@@ -151,6 +153,30 @@ public class Programme implements Serializable {
     public String toString() {
         //return "ht.gouv.faes.entity.Programme[ idprogramme=" + idprogramme + " ]";
         return nomprogramme;
+    }
+
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
     
 }

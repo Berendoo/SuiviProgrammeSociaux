@@ -17,16 +17,16 @@
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditDossierbeneficiaireLabel_iddossierbeneficiaire}" for="iddossierbeneficiaire" />
                     <h:inputText id="iddossierbeneficiaire" value="#{dossierbeneficiaireController.selected.iddossierbeneficiaire}" title="#{bundle.EditDossierbeneficiaireTitle_iddossierbeneficiaire}" />
+                    <h:outputLabel value="#{bundle.EditDossierbeneficiaireLabel_idindividu}" for="idindividu" />
+                    <h:inputText id="idindividu" value="#{dossierbeneficiaireController.selected.idindividu}" title="#{bundle.EditDossierbeneficiaireTitle_idindividu}" required="true" requiredMessage="#{bundle.EditDossierbeneficiaireRequiredMessage_idindividu}"/>
                     <h:outputLabel value="#{bundle.EditDossierbeneficiaireLabel_description}" for="description" />
                     <h:inputText id="description" value="#{dossierbeneficiaireController.selected.description}" title="#{bundle.EditDossierbeneficiaireTitle_description}" required="true" requiredMessage="#{bundle.EditDossierbeneficiaireRequiredMessage_description}"/>
                     <h:outputLabel value="#{bundle.EditDossierbeneficiaireLabel_datecreation}" for="datecreation" />
                     <h:inputText id="datecreation" value="#{dossierbeneficiaireController.selected.datecreation}" title="#{bundle.EditDossierbeneficiaireTitle_datecreation}" required="true" requiredMessage="#{bundle.EditDossierbeneficiaireRequiredMessage_datecreation}">
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.EditDossierbeneficiaireLabel_idindividu}" for="idindividu" />
-                    <h:selectOneMenu id="idindividu" value="#{dossierbeneficiaireController.selected.idindividu}" title="#{bundle.EditDossierbeneficiaireTitle_idindividu}" required="true" requiredMessage="#{bundle.EditDossierbeneficiaireRequiredMessage_idindividu}">
-                        <f:selectItems value="#{individuController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditDossierbeneficiaireLabel_createdBy}" for="createdBy" />
+                    <h:inputText id="createdBy" value="#{dossierbeneficiaireController.selected.createdBy}" title="#{bundle.EditDossierbeneficiaireTitle_createdBy}" />
                 </h:panelGrid>
                 <h:commandLink action="#{dossierbeneficiaireController.update}" value="#{bundle.EditDossierbeneficiaireSaveLink}"/>
                 <br />

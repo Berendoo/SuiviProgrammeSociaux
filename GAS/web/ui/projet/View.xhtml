@@ -23,10 +23,16 @@
                     <h:outputText value="#{projetController.selected.description}" title="#{bundle.ViewProjetTitle_description}"/>
                     <h:outputText value="#{bundle.ViewProjetLabel_typeprojet}"/>
                     <h:outputText value="#{projetController.selected.typeprojet}" title="#{bundle.ViewProjetTitle_typeprojet}"/>
-                    <h:outputText value="#{bundle.ViewProjetLabel_logo}"/>
-                    <h:outputText value="#{projetController.selected.logo}" title="#{bundle.ViewProjetTitle_logo}"/>
                     <h:outputText value="#{bundle.ViewProjetLabel_idprogramme}"/>
                     <h:outputText value="#{projetController.selected.idprogramme}" title="#{bundle.ViewProjetTitle_idprogramme}"/>
+                    <h:outputText value="#{bundle.ViewProjetLabel_logo}"/>
+                    <h:outputText value="#{projetController.selected.logo}" title="#{bundle.ViewProjetTitle_logo}"/>
+                    <h:outputText value="#{bundle.ViewProjetLabel_createdBy}"/>
+                    <h:outputText value="#{projetController.selected.createdBy}" title="#{bundle.ViewProjetTitle_createdBy}"/>
+                    <h:outputText value="#{bundle.ViewProjetLabel_created}"/>
+                    <h:outputText value="#{projetController.selected.created}" title="#{bundle.ViewProjetTitle_created}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{projetController.destroyAndView}" value="#{bundle.ViewProjetDestroyLink}"/>

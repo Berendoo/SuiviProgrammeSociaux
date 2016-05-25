@@ -6,6 +6,7 @@
 package ht.gouv.faes.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -21,6 +22,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -40,6 +43,15 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Projet.findByDescription", query = "SELECT p FROM Projet p WHERE p.description = :description"),
     @NamedQuery(name = "Projet.findByTypeprojet", query = "SELECT p FROM Projet p WHERE p.typeprojet = :typeprojet")})
 public class Projet implements Serializable {
+    @Lob
+    @Column(name = "LOGO")
+    private byte[] logo;
+    @Size(max = 25)
+    @Column(name = "CreatedBy")
+    private String createdBy;
+    @Column(name = "Created")
+    @Temporal(TemporalType.DATE)
+    private Date created;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = true)
@@ -62,9 +74,6 @@ public class Projet implements Serializable {
     @Size(min = 1, max = 25)
     @Column(name = "TYPEPROJET")
     private String typeprojet;
-    @Lob
-    @Column(name = "LOGO")
-    private byte[] logo;
     @JoinColumn(name = "IDPROGRAMME", referencedColumnName = "IDPROGRAMME")
     @ManyToOne(optional = false)
     private Programme idprogramme;
@@ -119,13 +128,6 @@ public class Projet implements Serializable {
         this.typeprojet = typeprojet;
     }
 
-    public byte[] getLogo() {
-        return logo;
-    }
-
-    public void setLogo(byte[] logo) {
-        this.logo = logo;
-    }
 
     public Programme getIdprogramme() {
         return idprogramme;
@@ -177,6 +179,30 @@ public class Projet implements Serializable {
     public String toString() {
         //return "ht.gouv.faes.entity.Projet[ idprojet=" + idprojet + " ]";
         return nomprojet;
+    }
+
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
     }
     
 }

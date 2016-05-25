@@ -41,6 +41,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Fichebeneficiaire.findByDatecreation", query = "SELECT f FROM Fichebeneficiaire f WHERE f.datecreation = :datecreation"),
     @NamedQuery(name = "Fichebeneficiaire.findByDescription", query = "SELECT f FROM Fichebeneficiaire f WHERE f.description = :description")})
 public class Fichebeneficiaire implements Serializable {
+    @Size(max = 25)
+    @Column(name = "CreatedBy")
+    private String createdBy;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = true)
@@ -160,6 +163,14 @@ public class Fichebeneficiaire implements Serializable {
     @Override
     public String toString() {
         return "ht.gouv.faes.entity.Fichebeneficiaire[ idfiche=" + idfiche + " ]";
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
     
 }

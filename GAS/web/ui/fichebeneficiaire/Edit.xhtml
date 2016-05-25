@@ -35,6 +35,8 @@
                     <h:selectOneMenu id="idtypebeneficiaire" value="#{fichebeneficiaireController.selected.idtypebeneficiaire}" title="#{bundle.EditFichebeneficiaireTitle_idtypebeneficiaire}" required="true" requiredMessage="#{bundle.EditFichebeneficiaireRequiredMessage_idtypebeneficiaire}">
                         <f:selectItems value="#{typebeneficiaireController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFichebeneficiaireLabel_createdBy}" for="createdBy" />
+                    <h:inputText id="createdBy" value="#{fichebeneficiaireController.selected.createdBy}" title="#{bundle.EditFichebeneficiaireTitle_createdBy}" />
                 </h:panelGrid>
                 <h:commandLink action="#{fichebeneficiaireController.update}" value="#{bundle.EditFichebeneficiaireSaveLink}"/>
                 <br />

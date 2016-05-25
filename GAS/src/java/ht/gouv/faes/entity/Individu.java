@@ -7,9 +7,7 @@ package ht.gouv.faes.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,15 +18,12 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -51,10 +46,11 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Individu.findByLieunaissance", query = "SELECT i FROM Individu i WHERE i.lieunaissance = :lieunaissance"),
     @NamedQuery(name = "Individu.findByAdresse", query = "SELECT i FROM Individu i WHERE i.adresse = :adresse"),
     @NamedQuery(name = "Individu.findByDateenregistrement", query = "SELECT i FROM Individu i WHERE i.dateenregistrement = :dateenregistrement"),
-    @NamedQuery(name = "Individu.findByNiveau", query = "SELECT i FROM Individu i WHERE i.niveau = :niveau")})
+    @NamedQuery(name = "Individu.findByNiveau", query = "SELECT i FROM Individu i WHERE i.niveau = :niveau"),
+    @NamedQuery(name = "Individu.findByCreatedBy", query = "SELECT i FROM Individu i WHERE i.createdBy = :createdBy")})
 public class Individu implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
+   @Id
     @Basic(optional = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@NotNull
@@ -118,12 +114,9 @@ public class Individu implements Serializable {
     @Size(max = 15)
     @Column(name = "NIVEAU")
     private String niveau;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idindividu")
-    private List<Dossierbeneficiaire> dossierbeneficiaireList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idindividu")
-    private List<Enfant> enfantList;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "individu")
-    private Utilisateur utilisateur;
+    @Size(max = 15)
+    @Column(name = "CreatedBy")
+    private String createdBy;
     @JoinColumn(name = "IDORGANISATION", referencedColumnName = "IDORGANISATION")
     @ManyToOne
     private Organisation idorganisation;
@@ -270,30 +263,12 @@ public class Individu implements Serializable {
         this.niveau = niveau;
     }
 
-    @XmlTransient
-    public List<Dossierbeneficiaire> getDossierbeneficiaireList() {
-        return dossierbeneficiaireList;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setDossierbeneficiaireList(List<Dossierbeneficiaire> dossierbeneficiaireList) {
-        this.dossierbeneficiaireList = dossierbeneficiaireList;
-    }
-
-    @XmlTransient
-    public List<Enfant> getEnfantList() {
-        return enfantList;
-    }
-
-    public void setEnfantList(List<Enfant> enfantList) {
-        this.enfantList = enfantList;
-    }
-
-    public Utilisateur getUtilisateur() {
-        return utilisateur;
-    }
-
-    public void setUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
     public Organisation getIdorganisation() {

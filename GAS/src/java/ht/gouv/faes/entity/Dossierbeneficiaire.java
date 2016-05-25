@@ -7,26 +7,20 @@ package ht.gouv.faes.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -38,8 +32,10 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Dossierbeneficiaire.findAll", query = "SELECT d FROM Dossierbeneficiaire d"),
     @NamedQuery(name = "Dossierbeneficiaire.findByIddossierbeneficiaire", query = "SELECT d FROM Dossierbeneficiaire d WHERE d.iddossierbeneficiaire = :iddossierbeneficiaire"),
+    @NamedQuery(name = "Dossierbeneficiaire.findByIdindividu", query = "SELECT d FROM Dossierbeneficiaire d WHERE d.idindividu = :idindividu"),
     @NamedQuery(name = "Dossierbeneficiaire.findByDescription", query = "SELECT d FROM Dossierbeneficiaire d WHERE d.description = :description"),
-    @NamedQuery(name = "Dossierbeneficiaire.findByDatecreation", query = "SELECT d FROM Dossierbeneficiaire d WHERE d.datecreation = :datecreation")})
+    @NamedQuery(name = "Dossierbeneficiaire.findByDatecreation", query = "SELECT d FROM Dossierbeneficiaire d WHERE d.datecreation = :datecreation"),
+    @NamedQuery(name = "Dossierbeneficiaire.findByCreatedBy", query = "SELECT d FROM Dossierbeneficiaire d WHERE d.createdBy = :createdBy")})
 public class Dossierbeneficiaire implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -50,6 +46,10 @@ public class Dossierbeneficiaire implements Serializable {
     private Integer iddossierbeneficiaire;
     @Basic(optional = false)
     @NotNull
+    @Column(name = "IDINDIVIDU")
+    private int idindividu;
+    @Basic(optional = false)
+    @NotNull
     @Size(min = 1, max = 150)
     @Column(name = "DESCRIPTION")
     private String description;
@@ -58,11 +58,9 @@ public class Dossierbeneficiaire implements Serializable {
     @Column(name = "DATECREATION")
     @Temporal(TemporalType.DATE)
     private Date datecreation;
-    @JoinColumn(name = "IDINDIVIDU", referencedColumnName = "IDINDIVIDU")
-    @ManyToOne(optional = false)
-    private Individu idindividu;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "iddossierbeneficiaire")
-    private List<Fichebeneficiaire> fichebeneficiaireList;
+    @Size(max = 25)
+    @Column(name = "CreatedBy")
+    private String createdBy;
 
     public Dossierbeneficiaire() {
     }
@@ -71,8 +69,9 @@ public class Dossierbeneficiaire implements Serializable {
         this.iddossierbeneficiaire = iddossierbeneficiaire;
     }
 
-    public Dossierbeneficiaire(Integer iddossierbeneficiaire, String description, Date datecreation) {
+    public Dossierbeneficiaire(Integer iddossierbeneficiaire, int idindividu, String description, Date datecreation) {
         this.iddossierbeneficiaire = iddossierbeneficiaire;
+        this.idindividu = idindividu;
         this.description = description;
         this.datecreation = datecreation;
     }
@@ -83,6 +82,14 @@ public class Dossierbeneficiaire implements Serializable {
 
     public void setIddossierbeneficiaire(Integer iddossierbeneficiaire) {
         this.iddossierbeneficiaire = iddossierbeneficiaire;
+    }
+
+    public int getIdindividu() {
+        return idindividu;
+    }
+
+    public void setIdindividu(int idindividu) {
+        this.idindividu = idindividu;
     }
 
     public String getDescription() {
@@ -101,21 +108,12 @@ public class Dossierbeneficiaire implements Serializable {
         this.datecreation = datecreation;
     }
 
-    public Individu getIdindividu() {
-        return idindividu;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setIdindividu(Individu idindividu) {
-        this.idindividu = idindividu;
-    }
-
-    @XmlTransient
-    public List<Fichebeneficiaire> getFichebeneficiaireList() {
-        return fichebeneficiaireList;
-    }
-
-    public void setFichebeneficiaireList(List<Fichebeneficiaire> fichebeneficiaireList) {
-        this.fichebeneficiaireList = fichebeneficiaireList;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
     @Override

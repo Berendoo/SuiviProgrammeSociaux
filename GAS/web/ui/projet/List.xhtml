@@ -46,15 +46,29 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProjetTitle_idprogramme}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idprogramme}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListProjetTitle_logo}"/>
                             </f:facet>
                             <h:outputText value="#{item.logo}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListProjetTitle_idprogramme}"/>
+                                <h:outputText value="#{bundle.ListProjetTitle_createdBy}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idprogramme}"/>
+                            <h:outputText value="#{item.createdBy}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListProjetTitle_created}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.created}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
                         </h:column>
                         <h:column>
                             <f:facet name="header">

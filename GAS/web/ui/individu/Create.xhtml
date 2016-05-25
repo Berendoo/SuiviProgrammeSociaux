@@ -43,10 +43,6 @@
                     <h:inputText id="dateenregistrement" value="#{individuController.selected.dateenregistrement}" title="#{bundle.CreateIndividuTitle_dateenregistrement}" >
                         <f:convertDateTime pattern="MM/dd/yyyy" />
                     </h:inputText>
-                    <h:outputLabel value="#{bundle.CreateIndividuLabel_photo}" for="photo" />
-                    <h:inputTextarea rows="4" cols="30" id="photo" value="#{individuController.selected.photo}" title="#{bundle.CreateIndividuTitle_photo}" />
-                    <h:outputLabel value="#{bundle.CreateIndividuLabel_empreinte}" for="empreinte" />
-                    <h:inputTextarea rows="4" cols="30" id="empreinte" value="#{individuController.selected.empreinte}" title="#{bundle.CreateIndividuTitle_empreinte}" />
                     <h:outputLabel value="#{bundle.CreateIndividuLabel_niveau}" for="niveau" />
                     <h:inputText id="niveau" value="#{individuController.selected.niveau}" title="#{bundle.CreateIndividuTitle_niveau}" />
                     <h:outputLabel value="#{bundle.CreateIndividuLabel_utilisateur}" for="utilisateur" />
@@ -61,6 +57,12 @@
                     <h:selectOneMenu id="idprf" value="#{individuController.selected.idprf}" title="#{bundle.CreateIndividuTitle_idprf}" >
                         <f:selectItems value="#{personnereferenceController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_photo}" for="photo" />
+                    <h:inputTextarea rows="4" cols="30" id="photo" value="#{individuController.selected.photo}" title="#{bundle.CreateIndividuTitle_photo}" />
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_empreinte}" for="empreinte" />
+                    <h:inputTextarea rows="4" cols="30" id="empreinte" value="#{individuController.selected.empreinte}" title="#{bundle.CreateIndividuTitle_empreinte}" />
+                    <h:outputLabel value="#{bundle.CreateIndividuLabel_createdBy}" for="createdBy" />
+                    <h:inputText id="createdBy" value="#{individuController.selected.createdBy}" title="#{bundle.CreateIndividuTitle_createdBy}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{individuController.create}" value="#{bundle.CreateIndividuSaveLink}" />

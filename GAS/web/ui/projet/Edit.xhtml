@@ -23,12 +23,18 @@
                     <h:inputText id="description" value="#{projetController.selected.description}" title="#{bundle.EditProjetTitle_description}" required="true" requiredMessage="#{bundle.EditProjetRequiredMessage_description}"/>
                     <h:outputLabel value="#{bundle.EditProjetLabel_typeprojet}" for="typeprojet" />
                     <h:inputText id="typeprojet" value="#{projetController.selected.typeprojet}" title="#{bundle.EditProjetTitle_typeprojet}" required="true" requiredMessage="#{bundle.EditProjetRequiredMessage_typeprojet}"/>
-                    <h:outputLabel value="#{bundle.EditProjetLabel_logo}" for="logo" />
-                    <h:inputTextarea rows="4" cols="30" id="logo" value="#{projetController.selected.logo}" title="#{bundle.EditProjetTitle_logo}" />
                     <h:outputLabel value="#{bundle.EditProjetLabel_idprogramme}" for="idprogramme" />
                     <h:selectOneMenu id="idprogramme" value="#{projetController.selected.idprogramme}" title="#{bundle.EditProjetTitle_idprogramme}" required="true" requiredMessage="#{bundle.EditProjetRequiredMessage_idprogramme}">
                         <f:selectItems value="#{programmeController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditProjetLabel_logo}" for="logo" />
+                    <h:inputTextarea rows="4" cols="30" id="logo" value="#{projetController.selected.logo}" title="#{bundle.EditProjetTitle_logo}" />
+                    <h:outputLabel value="#{bundle.EditProjetLabel_createdBy}" for="createdBy" />
+                    <h:inputText id="createdBy" value="#{projetController.selected.createdBy}" title="#{bundle.EditProjetTitle_createdBy}" />
+                    <h:outputLabel value="#{bundle.EditProjetLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{projetController.selected.created}" title="#{bundle.EditProjetTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
                 </h:panelGrid>
                 <h:commandLink action="#{projetController.update}" value="#{bundle.EditProjetSaveLink}"/>
                 <br />

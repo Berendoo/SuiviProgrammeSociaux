@@ -39,6 +39,8 @@
                     <h:selectOneMenu id="idprivilege" value="#{utilisateurController.selected.idprivilege}" title="#{bundle.CreateUtilisateurTitle_idprivilege}" required="true" requiredMessage="#{bundle.CreateUtilisateurRequiredMessage_idprivilege}">
                         <f:selectItems value="#{rolesController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateUtilisateurLabel_createdBy}" for="createdBy" />
+                    <h:inputText id="createdBy" value="#{utilisateurController.selected.createdBy}" title="#{bundle.CreateUtilisateurTitle_createdBy}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{utilisateurController.create}" value="#{bundle.CreateUtilisateurSaveLink}" />

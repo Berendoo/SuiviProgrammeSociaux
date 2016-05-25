@@ -21,12 +21,18 @@
                     <h:inputText id="nomprogramme" value="#{programmeController.selected.nomprogramme}" title="#{bundle.EditProgrammeTitle_nomprogramme}" required="true" requiredMessage="#{bundle.EditProgrammeRequiredMessage_nomprogramme}"/>
                     <h:outputLabel value="#{bundle.EditProgrammeLabel_description}" for="description" />
                     <h:inputText id="description" value="#{programmeController.selected.description}" title="#{bundle.EditProgrammeTitle_description}" required="true" requiredMessage="#{bundle.EditProgrammeRequiredMessage_description}"/>
-                    <h:outputLabel value="#{bundle.EditProgrammeLabel_logo}" for="logo" />
-                    <h:inputTextarea rows="4" cols="30" id="logo" value="#{programmeController.selected.logo}" title="#{bundle.EditProgrammeTitle_logo}" />
                     <h:outputLabel value="#{bundle.EditProgrammeLabel_idinstitution}" for="idinstitution" />
                     <h:selectOneMenu id="idinstitution" value="#{programmeController.selected.idinstitution}" title="#{bundle.EditProgrammeTitle_idinstitution}" required="true" requiredMessage="#{bundle.EditProgrammeRequiredMessage_idinstitution}">
                         <f:selectItems value="#{institutionController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditProgrammeLabel_logo}" for="logo" />
+                    <h:inputTextarea rows="4" cols="30" id="logo" value="#{programmeController.selected.logo}" title="#{bundle.EditProgrammeTitle_logo}" />
+                    <h:outputLabel value="#{bundle.EditProgrammeLabel_createdBy}" for="createdBy" />
+                    <h:inputText id="createdBy" value="#{programmeController.selected.createdBy}" title="#{bundle.EditProgrammeTitle_createdBy}" />
+                    <h:outputLabel value="#{bundle.EditProgrammeLabel_created}" for="created" />
+                    <h:inputText id="created" value="#{programmeController.selected.created}" title="#{bundle.EditProgrammeTitle_created}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
                 </h:panelGrid>
                 <h:commandLink action="#{programmeController.update}" value="#{bundle.EditProgrammeSaveLink}"/>
                 <br />

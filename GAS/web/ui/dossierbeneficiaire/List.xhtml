@@ -28,6 +28,12 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDossierbeneficiaireTitle_idindividu}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idindividu}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListDossierbeneficiaireTitle_description}"/>
                             </f:facet>
                             <h:outputText value="#{item.description}"/>
@@ -42,9 +48,9 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListDossierbeneficiaireTitle_idindividu}"/>
+                                <h:outputText value="#{bundle.ListDossierbeneficiaireTitle_createdBy}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idindividu}"/>
+                            <h:outputText value="#{item.createdBy}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
